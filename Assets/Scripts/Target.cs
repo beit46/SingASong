@@ -2,16 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum TARGET_TYPE {
+	NONE,
+	LIGHT,
+	MEDIUM,
+	STRONG
+}
+
 public class Target : MonoBehaviour {
 	public float speed = 10.0f;
+	public TARGET_TYPE type = TARGET_TYPE.NONE;
 	Vector2 direction = Vector2.down;
 
 	public delegate void TargetDestroyed(Target target);
 	public TargetDestroyed OnTargetDestroyed;
 
-	public void Shot(Vector2 direction, float speed) {
+	SpriteRenderer spriteRenderer;
+
+	void Awake() {
+		this.spriteRenderer = GetComponent<SpriteRenderer>();
+	}
+
+	public void Shot(Vector2 direction, float speed, TARGET_TYPE type) {
 		this.direction = direction;
 		this.speed = speed;
+		this.type = type;
+		this.spriteRenderer.color = MainReferences.ColorGenerator.colorForType((int)type);
 	}
 
 	// Update is called once per frame
@@ -21,14 +37,16 @@ public class Target : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D collider) {
 		if (collider.gameObject.tag == "Projectile") {
-			MainReferences.AudioPlayer.PlayEffect();
-
-			NotifyTargetDestroyed();
-
 			Projectile projectile = collider.gameObject.GetComponent<Projectile>();
-			Destroy(projectile.gameObject);
 
-			Destroy(this.gameObject);
+			if ((int)projectile.type == (int)this.type) {
+				MainReferences.AudioPlayer.PlayEffect();
+				
+				NotifyTargetDestroyed();
+				
+				Destroy(projectile.gameObject);
+				Destroy(this.gameObject);
+			}
 		}
 	}
 

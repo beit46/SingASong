@@ -17,7 +17,7 @@ public class TargetSpawner : MonoBehaviour {
 
 	void SpawnTarget() {
 		Target target = Instantiate(TargetPrefab, this.transform.position, Quaternion.identity).GetComponent<Target>();
-		target.Shot(Vector2.down, targetSpeed);
+		target.Shot(Vector2.down, targetSpeed, (TARGET_TYPE)Random.Range(1, 4));
 		target.OnTargetDestroyed += TargetDestroyed;
 		this.liveTargets.Add(target);
 

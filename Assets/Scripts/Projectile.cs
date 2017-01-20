@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum PROJECTILE_FORCE {
+public enum PROJECTILE_TYPE {
+	NONE,
 	LIGHT,
 	MEDIUM,
 	STRONG
@@ -11,12 +12,20 @@ public enum PROJECTILE_FORCE {
 public class Projectile : MonoBehaviour {
 	public float speed = 40.0f;
 	Vector2 direction = Vector2.up;
+	public PROJECTILE_TYPE type = PROJECTILE_TYPE.NONE;
 
-	public void Shot(Vector2 direction) {
-		this.direction = direction;
+	SpriteRenderer spriteRenderer;
+
+	void Awake() {
+		this.spriteRenderer = GetComponent<SpriteRenderer>();
 	}
-	
-	// Update is called once per frame
+
+	public void Shot(Vector2 direction, PROJECTILE_TYPE type) {
+		this.direction = direction;
+		this.type = type;
+		this.spriteRenderer.color = MainReferences.ColorGenerator.colorForType((int)type);
+	}
+
 	void Update () {
 		this.transform.position += (Vector3)direction.normalized * Time.deltaTime * speed;
 	}
