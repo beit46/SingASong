@@ -119,6 +119,7 @@ Transform:
   - {fileID: 932060811}
   - {fileID: 1139997508}
   - {fileID: 1478197114}
+  - {fileID: 1045226287}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -411,6 +412,156 @@ MonoBehaviour:
   colorLight: {r: 0.16787414, g: 0.3688514, b: 0.8455882, a: 1}
   colorMedium: {r: 0.40558183, g: 0.8308824, b: 0.20161116, a: 1}
   colorStrong: {r: 0.748971, g: 0.1910683, b: 0.83823526, a: 1}
+--- !u!1 &1045226286
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1045226287}
+  - component: {fileID: 1045226291}
+  - component: {fileID: 1045226290}
+  - component: {fileID: 1045226289}
+  - component: {fileID: 1045226288}
+  m_Layer: 0
+  m_Name: Koreography
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1045226287
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1045226286}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 37606564}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1045226288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1045226286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04a42226b53654737b63f94980473351, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1045226289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1045226286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 316907577, guid: 7ab44e72661444ea4b3b72f155c6ecea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadedKoreography: []
+  eventDelayInSeconds: 0
+--- !u!114 &1045226290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1045226286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1060073270, guid: 7ab44e72661444ea4b3b72f155c6ecea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  autoPlayOnAwake: 1
+  koreography: {fileID: 11400000, guid: b981dd3efa7a84cd2954fdb1065d171f, type: 2}
+  targetKoreographer: {fileID: 0}
+--- !u!82 &1045226291
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1045226286}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1 &1139997506
 GameObject:
   m_ObjectHideFlags: 0
@@ -708,6 +859,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8fb17d49e92d44c087d672cdd4eaeae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  koreographerController: {fileID: 1045226288}
   targetSpeed: 15
   liveTargets: []
   TargetPrefab: {fileID: 1962170803584284, guid: cf7244d78318041b29da0519f3e95659,

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TargetSpawner : MonoBehaviour {
+	public KoreopgrapherController koreographerController;
 	private LineSelector lineSelector;
 	public float targetSpeed = 15.0f;
 	public List<Target> liveTargets;
@@ -11,14 +12,15 @@ public class TargetSpawner : MonoBehaviour {
 
 	void Awake() {
 		lineSelector = GetComponent<LineSelector>();
+		this.koreographerController.OnBeat += SpawnTarget;
 	}
 
-	void Update () {
-		if (liveTargets.Count <= 1 && !isSpawning) {
-			this.isSpawning = true;
-			Invoke("SpawnTarget", Random.Range(0.3f, 1.5f));
-		}
-	}
+//	void Update () {
+//		if (liveTargets.Count <= 1 && !isSpawning) {
+//			this.isSpawning = true;
+//			Invoke("SpawnTarget", Random.Range(0.3f, 1.5f));
+//		}
+//	}
 
 	void SpawnTarget() {
 		int moveTo = Random.Range(0, 3);
@@ -32,7 +34,7 @@ public class TargetSpawner : MonoBehaviour {
 		target.OnTargetDestroyed += TargetDestroyed;
 		this.liveTargets.Add(target);
 
-		this.isSpawning = false;
+//		this.isSpawning = false;
 	}
 
 	void TargetDestroyed(Target target) {
