@@ -64,7 +64,14 @@ public class TargetSpawner : MonoBehaviour {
 	void TargetDestroyed(Target target) {
 		Debug.Log("Target Destroyed");
 		ClearTarget(target);
+
 		this.lastShotWasAHit = true;
+
+		CalculateScore();
+	}
+
+	void CalculateScore() {
+		
 		if (this.lastShotWasAHit) {
 			this.consecutiveHitSuccesfull++;
 			if (this.consecutiveHitSuccesfull >= this.numberOfHitToIncreaseMultiplier) {
@@ -74,27 +81,28 @@ public class TargetSpawner : MonoBehaviour {
 
 				this.consecutiveHitSuccesfull = 0;
 			}
+			this.score += scoreStep * multiplier;
 		} else {
 			this.multiplier = 1.0f;
 			this.consecutiveHitSuccesfull = 0;
 		}
 
 
-		this.score += scoreStep * multiplier;
 
 		MainReferences.UIInterface.SetScore(score);
-		MainReferences.UIInterface.SetMultiplier(multiplier);
+		MainReferences.UIInterface.SetMultiplier(multiplier);	
 	}
 
 	void TargetEscaped(Target target) {
 		Debug.Log("Target escpaed");
 		ClearTarget(target);
 
-		this.multiplier = 1.0f;
-		this.consecutiveHitSuccesfull = 0;
-		MainReferences.UIInterface.SetMultiplier(multiplier);
+//		this.multiplier = 1.0f;
+//		this.consecutiveHitSuccesfull = 0;
+//		MainReferences.UIInterface.SetMultiplier(multiplier);
 
 		this.lastShotWasAHit = false;
+		CalculateScore();
 	}
 
 	void ClearTarget(Target target) {
