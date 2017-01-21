@@ -689,6 +689,7 @@ GameObject:
   - component: {fileID: 1879962415}
   - component: {fileID: 1879962414}
   - component: {fileID: 1879962416}
+  - component: {fileID: 1879962417}
   m_Layer: 0
   m_Name: TargetSpawner
   m_TagString: Untagged
@@ -759,6 +760,22 @@ SpriteRenderer:
   m_Color: {r: 0.18436417, g: 0.8088235, b: 0.34370887, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &1879962417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1879962413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4df8b9f81ef6e456cb63a78fcfd2e2ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lines:
+  - {fileID: 525193194}
+  - {fileID: 1543559749}
+  - {fileID: 2059812121}
+  currentLine: {fileID: 1543559749}
 --- !u!1 &2059812120
 GameObject:
   m_ObjectHideFlags: 0
