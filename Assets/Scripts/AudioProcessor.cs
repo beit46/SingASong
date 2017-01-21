@@ -12,7 +12,7 @@ public class AudioProcessor : MonoBehaviour {
 		public const float FLOW = -1f;
 	}
 
-	const int THRESHOLD_SINGLE = 7;
+	const int THRESHOLD_SINGLE = 5;
 
 	AudioInput _audioInput;
 
@@ -46,6 +46,8 @@ public class AudioProcessor : MonoBehaviour {
 
 	void UpdateVolumeState(float volume) {
 		float newVolume = GetVolumeCardinal(volume);
+//		if (volume >= 0.02f)
+//			Debug.Log(GetVolumeText(volume));
 		if (newVolume == Volume.NONE) {
 			if (_toTrigger != Volume.NONE && _toTrigger != Volume.FLOW) {
 				TriggerSingle (_toTrigger);
@@ -74,7 +76,7 @@ public class AudioProcessor : MonoBehaviour {
 		else if (newVolume > _currentVolume) {
 			_sequenceCount = 0;
 		}
-		_currentVolume = volume;
+		_currentVolume = newVolume;
 	}
 
 	void TriggerSingle(float volume) {
