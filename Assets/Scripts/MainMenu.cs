@@ -11,8 +11,8 @@ public class MainMenu : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		audioProcessor.volumeInputSingle += StartGame ();
-		audioProcessor.volumeInputContinued += StartGame ();
+//		audioProcessor.volumeInputSingle += StartGame;
+//		audioProcessor.volumeInputContinued += StartGame;
 	}
 	
 	// Update is called once per frame

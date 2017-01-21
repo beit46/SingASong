@@ -54,14 +54,14 @@ public class TargetSpawner : MonoBehaviour {
 	}
 
 	void TargetDestroyed(Target target) {
-		Debug.Log("Target Destroyed");
+//		Debug.Log("Target Destroyed");
 		ClearTarget(target);
 
 		MainReferences.ScoreController.Hit();
 	}
 
 	void TargetEscaped(Target target) {
-		Debug.Log("Target escpaed");
+//		Debug.Log("Target escpaed");
 		ClearTarget(target);
 
 		MainReferences.ScoreController.Miss();
