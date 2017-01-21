@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class AudioInput : MonoBehaviour {
 
-	delegate void AudioInputReceived(float volume);
-	AudioInputReceived audioInputReceived;
-
 	AudioSource _audio;
 	public float lastInput;
 
@@ -26,21 +23,14 @@ public class AudioInput : MonoBehaviour {
 		//_audio.mute = true;
 		while (!(Microphone.GetPosition(null) > 0)){}
 		_audio.Play();
-		audioInputReceived += TestLogVolume;
 		lastInput = 0f;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		float volume = GetAveragedVolume ();
-		//if (volume >= 0.02f)
-			lastInput = volume;
-//		else
-//			lastInput = 0f;
-//		volume = GetVolumeCardinal (volume);
-//		if (volume > Volume.ZERO) {
-//			audioInputReceived (volume);
-//		}
+		lastInput = GetAveragedVolume ();
+//		if (lastInput > 0)
+//			Debug.Log (lastInput);
 	}
 
 	void GetData() {
@@ -59,22 +49,5 @@ public class AudioInput : MonoBehaviour {
 			average += Mathf.Abs(s);
 		}
 		return average / 256;
-	}
-
-	float GetVolumeCardinal(float volume) {
-		if (volume >= Volume.HIGH) {
-			return Volume.HIGH;
-		} else if (volume >= Volume.MEDIUM) {
-			return Volume.MEDIUM;
-		} else if (volume >= Volume.LOW) {
-			return Volume.LOW;
-		} else if (volume >= Volume.TEST) {
-			return Volume.TEST;
-		}
-		return Volume.ZERO;
-	}
-
-	void TestLogVolume(float volume) {
-		Debug.Log (volume);
 	}
 }

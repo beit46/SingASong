@@ -13,9 +13,9 @@ public class AudioProcessor : MonoBehaviour {
 	const float VOLUME_STEP = 0.04f;
 
 	class Volume {
-		public const float NONE   = 0.0f;
-		public const float LOW    = 0.03f;
-		public const float HIGH   = LOW + VOLUME_STEP;
+		public const float NONE = 0.0f;
+		public const float LOW  = 0.02f;
+		public const float HIGH = LOW + VOLUME_STEP;
 	}
 
 	public enum VolumeInput {
@@ -24,25 +24,22 @@ public class AudioProcessor : MonoBehaviour {
 		HIGH
 	}
 
-	const int THRESHOLD_SINGLE = 5;
+	const int THRESHOLD_SINGLE = 10;
 	const int THRESHOLD_ZERO = 3;
 
 	AudioInput _audioInput;
 
 	float _currentVolume;
 	int _sequenceCount;
-	int _zeroCount;
 	bool _canSingle;
-
-	float _timeElapsed;
+	bool _block;
 
 	void Start() {
 		_audioInput = GetComponent<AudioInput> ();
 		_currentVolume = Volume.NONE;
 		_sequenceCount = 0;
-		_timeElapsed = 0f;
 		_canSingle = true;
-		_zeroCount = 0;
+		_block = false;
 		volumeInputSingle += TriggerSingle;
 		volumeInputContinued += TriggerContinued;
 	}
@@ -62,49 +59,39 @@ public class AudioProcessor : MonoBehaviour {
 	}
 
 	void UpdateVolumeState(float volume) {
-		_timeElapsed += Time.deltaTime;
-		if (_timeElapsed > 0f) {
-			float newVolume = GetVolumeCardinal (volume);
+		float newVolume = GetVolumeCardinal (volume);
+		if (_block) {
+			_sequenceCount++;
+			if (_sequenceCount > THRESHOLD_ZERO) {
+				_sequenceCount = 0;
+				_block = false;
+			}
+		}
+		if (!_block) {
 			if (newVolume < _currentVolume) {
-				if (newVolume != Volume.NONE || _zeroCount > THRESHOLD_ZERO) {
-					if (_canSingle) {
-						_canSingle = false;
-						volumeInputSingle (GetVolumeInput(_currentVolume));
-					}
-					if (newVolume == Volume.NONE) {
-						_canSingle = true;
-					}
-					_zeroCount = 0;
+				if (_canSingle) {
+					_canSingle = false;
+					volumeInputSingle (GetVolumeInput (_currentVolume));
 				}
-				else {
-					_zeroCount++;
+				if (newVolume == Volume.NONE) {
+					_block = true;
+					_canSingle = true;
 				}
 				_sequenceCount = 0;
 			}
 			else if (newVolume == _currentVolume) {
 				if (_sequenceCount > THRESHOLD_SINGLE && newVolume != Volume.NONE) {
+					volumeInputContinued (GetVolumeInput (_currentVolume));
 					_canSingle = false;
-					volumeInputContinued (GetVolumeInput(_currentVolume));
-					_zeroCount = 0;
-				}
-				else if (newVolume == Volume.NONE && _zeroCount <= THRESHOLD_ZERO) {
-					_zeroCount++;
-				}
-				else if (newVolume == Volume.NONE) {
-					_canSingle = true;
-					_zeroCount = 0;
 				}
 				else {
 					_sequenceCount++;
-					_zeroCount = 0;
 				}
 			}
 			else if (newVolume > _currentVolume) {
 				_sequenceCount = 0;
-				_zeroCount = 0;
 			}
 			_currentVolume = newVolume;
-			_timeElapsed = 0f;
 		}
 	}
 
