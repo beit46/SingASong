@@ -10,12 +10,16 @@ public class AudioProcessor : MonoBehaviour {
 	public delegate void VolumeInputContinued(VolumeInput value);
 	public VolumeInputContinued volumeInputContinued;
 
-	const float VOLUME_STEP = 0.05f;
+	public Volume volume = new Volume();
 
-	class Volume {
-		public const float NONE = 0.0f;
-		public const float LOW  = 0.02f;
-		public const float HIGH = LOW + VOLUME_STEP;
+	[System.Serializable]
+	public class Volume {
+//		public float VOLUME_STEP = 0.04f;
+//		public float LOW_TO_HIGH_DELTA = 0.02f;
+		public float NONE = 0.0f;
+		public float LOW  = 0.02f;
+		public float MIDDLE = 0.04f;
+		public float HIGH = 0.06f;
 	}
 
 	public enum VolumeInput {
@@ -24,8 +28,8 @@ public class AudioProcessor : MonoBehaviour {
 		HIGH
 	}
 
-	const int THRESHOLD_SINGLE = 10;
-	const int THRESHOLD_ZERO = 3;
+	public int THRESHOLD_SINGLE = 10;
+	public int THRESHOLD_ZERO = 3;
 
 	AudioInput _audioInput;
 
@@ -36,7 +40,7 @@ public class AudioProcessor : MonoBehaviour {
 
 	void Start() {
 		_audioInput = GetComponent<AudioInput> ();
-		_currentVolume = Volume.NONE;
+		_currentVolume = this.volume.NONE;
 		_sequenceCount = 0;
 		_canSingle = true;
 		_block = false;
@@ -49,13 +53,13 @@ public class AudioProcessor : MonoBehaviour {
 	}
 
 	float GetVolumeCardinal(float volume) {
-		if (volume >= Volume.HIGH) {
-			return Volume.HIGH;
+		if (volume >= this.volume.HIGH) {
+			return this.volume.HIGH;
 		}
-		else if (volume >= Volume.LOW) {
-			return Volume.LOW;
+		else if (volume >= this.volume.LOW && volume <= this.volume.HIGH - 0.01f) {
+			return this.volume.LOW;
 		}
-		return Volume.NONE;
+		return this.volume.NONE;
 	}
 
 	void UpdateVolumeState(float volume) {
@@ -73,14 +77,14 @@ public class AudioProcessor : MonoBehaviour {
 					_canSingle = false;
 					volumeInputSingle (GetVolumeInput (_currentVolume));
 				}
-				if (newVolume == Volume.NONE) {
+				if (newVolume == this.volume.NONE) {
 					_block = true;
 					_canSingle = true;
 				}
 				_sequenceCount = 0;
 			}
 			else if (newVolume == _currentVolume) {
-				if (_sequenceCount > THRESHOLD_SINGLE && newVolume != Volume.NONE) {
+				if (_sequenceCount > THRESHOLD_SINGLE && newVolume != this.volume.NONE) {
 					volumeInputContinued (GetVolumeInput (_currentVolume));
 					_canSingle = false;
 				}
@@ -96,11 +100,11 @@ public class AudioProcessor : MonoBehaviour {
 	}
 
 	void TriggerSingle(VolumeInput volume) {
-		Debug.Log ("Single => " + GetVolumeText(volume));
+//		Debug.Log ("Single => " + GetVolumeText(volume));
 	}
 
 	void TriggerContinued(VolumeInput volume) {
-		Debug.Log ("Flow => " + GetVolumeText(volume));
+//		Debug.Log ("Flow => " + GetVolumeText(volume));
 	}
 
 	string GetVolumeText(VolumeInput volume) {
@@ -114,16 +118,12 @@ public class AudioProcessor : MonoBehaviour {
 	}
 
 	VolumeInput GetVolumeInput(float volume) {
-		if (volume >= Volume.HIGH) {
+		if (volume >= this.volume.HIGH) {
 			return VolumeInput.HIGH;
 		}
-		else if (volume >= Volume.LOW) {
+		else if (volume >= this.volume.LOW) {
 			return VolumeInput.LOW;
 		}
 		return VolumeInput.NONE;
-	}
-
-	static float CalibrateVolume(float volume) {
-		return volume - (VOLUME_STEP / 2f);
 	}
 }

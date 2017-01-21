@@ -467,6 +467,48 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 6.557, y: -13.136001, z: 22.882002}
+--- !u!1001 &734351355
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4786325756456596, guid: dfe6f27bbc3f2436994813a3454446e2, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 4786325756456596, guid: dfe6f27bbc3f2436994813a3454446e2, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 2.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 4786325756456596, guid: dfe6f27bbc3f2436994813a3454446e2, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4786325756456596, guid: dfe6f27bbc3f2436994813a3454446e2, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4786325756456596, guid: dfe6f27bbc3f2436994813a3454446e2, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4786325756456596, guid: dfe6f27bbc3f2436994813a3454446e2, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4786325756456596, guid: dfe6f27bbc3f2436994813a3454446e2, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4786325756456596, guid: dfe6f27bbc3f2436994813a3454446e2, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: dfe6f27bbc3f2436994813a3454446e2, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &806247304
 GameObject:
   m_ObjectHideFlags: 0
@@ -650,6 +692,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2146414e9d07a40bd9bde973ae7745a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  volume:
+    NONE: 0
+    LOW: 0.02
+    MIDDLE: 0.05
+    HIGH: 0.08
+  THRESHOLD_SINGLE: 12
+  THRESHOLD_ZERO: 3
 --- !u!82 &895026849
 AudioSource:
   m_ObjectHideFlags: 0
@@ -782,9 +831,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a794c807e8ee6419a913d970c72e8416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorLight: {r: 0.16787414, g: 0.3688514, b: 0.8455882, a: 1}
+  colorLight: {r: 0.89365983, g: 0.9852941, b: 0.036224023, a: 1}
   colorMedium: {r: 0.40558183, g: 0.8308824, b: 0.20161116, a: 1}
   colorStrong: {r: 0.748971, g: 0.1910683, b: 0.83823526, a: 1}
+  blueTron: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &935507799
 GameObject:
   m_ObjectHideFlags: 0
