@@ -13,9 +13,14 @@ public class MainMenu : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+<<<<<<< HEAD
 		audioProcessor.volumeInputSingle += StartGame;
 		audioProcessor.volumeInputContinued += StartGame;
 		_bestScore = 0;
+=======
+//		audioProcessor.volumeInputSingle += StartGame;
+//		audioProcessor.volumeInputContinued += StartGame;
+>>>>>>> bfc2ddd8c8e2717e49c41f3a7da291f05c998358
 	}
 	
 	// Update is called once per frame

@@ -47,7 +47,7 @@ public class Gun : MonoBehaviour {
 		if (!this.isReloading) {
 			Projectile projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity).GetComponent<Projectile>();
 			projectile.Shot(Vector2.up, type);
-			this.isReloading = false;
+			this.isReloading = true;
 			Invoke("Reload", reloadTime);
 		}
 	}
@@ -59,8 +59,7 @@ public class Gun : MonoBehaviour {
 //	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown(KeyCode.A)) {
-			Projectile projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity).GetComponent<Projectile>();
-			projectile.Shot(Vector2.up, PROJECTILE_TYPE.LIGHT);
+			this.Shot(PROJECTILE_TYPE.LIGHT);
 		}
 //		if (Input.GetKeyDown(KeyCode.S)) {
 //			Projectile projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity).GetComponent<Projectile>();
