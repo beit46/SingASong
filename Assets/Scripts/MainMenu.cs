@@ -23,7 +23,7 @@ public class MainMenu : MonoBehaviour {
 		
 	}
 
-	void StartGame() {
+	void StartGame(AudioProcessor.VolumeInput volume) {
 		SceneManager.LoadScene ("Main");
 	}
 
