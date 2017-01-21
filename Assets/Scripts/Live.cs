@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Live : MonoBehaviour {
 	public int startingLives = 5;
@@ -18,6 +19,7 @@ public class Live : MonoBehaviour {
 	}
 
 	void NotifyDead() {
+		SceneManager.LoadScene ("MainMenu");
 		if(this.OnDead != null)
 			this.OnDead();
 	}
