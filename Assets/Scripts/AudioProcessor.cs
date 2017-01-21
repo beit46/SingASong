@@ -10,7 +10,7 @@ public class AudioProcessor : MonoBehaviour {
 	public delegate void VolumeInputContinued(VolumeInput value);
 	public VolumeInputContinued volumeInputContinued;
 
-	const float VOLUME_STEP = 0.04f;
+	const float VOLUME_STEP = 0.05f;
 
 	class Volume {
 		public const float NONE = 0.0f;
@@ -96,11 +96,11 @@ public class AudioProcessor : MonoBehaviour {
 	}
 
 	void TriggerSingle(VolumeInput volume) {
-//		Debug.Log ("Single => " + GetVolumeText(volume));
+		Debug.Log ("Single => " + GetVolumeText(volume));
 	}
 
 	void TriggerContinued(VolumeInput volume) {
-//		Debug.Log ("Flow => " + GetVolumeText(volume));
+		Debug.Log ("Flow => " + GetVolumeText(volume));
 	}
 
 	string GetVolumeText(VolumeInput volume) {

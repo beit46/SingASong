@@ -7,20 +7,13 @@ public class AudioInput : MonoBehaviour {
 	AudioSource _audio;
 	public float lastInput;
 
-	public class Volume {
-		public const float ZERO   = 0.0f;
-		public const float TEST   = 0.005f;
-		public const float LOW    = 0.02f;
-		public const float MEDIUM = 0.05f;
-		public const float HIGH   = 0.08f;
-	}
-
 	// Use this for initialization
 	void Start () {
 		_audio = GetComponent<AudioSource>();
 		_audio.clip = Microphone.Start(null, true, 5, 44100);
 		_audio.loop = true;
-		//_audio.mute = true;
+		//_audio.mute = true; Doesn't work, is bugged;
+		//_audio.volume = 0.0000001f;
 		while (!(Microphone.GetPosition(null) > 0)){}
 		_audio.Play();
 		lastInput = 0f;
