@@ -9,6 +9,7 @@ public class MainMenu : MonoBehaviour {
 	public Text bestScore;
 	public Text lastScore;
 	int _bestScore;
+	int _lastScore;
 	public AudioProcessor audioProcessor;
 
 	// Use this for initialization
@@ -16,6 +17,12 @@ public class MainMenu : MonoBehaviour {
 		audioProcessor.volumeInputSingle += StartGame;
 		audioProcessor.volumeInputContinued += StartGame;
 		_bestScore = 0;
+		_lastScore = 0;
+		if (PlayerPrefs.HasKey ("LastScore")) {
+			_lastScore = PlayerPrefs.GetInt ("LastScore");
+		}
+		setLastScore (_lastScore);
+		setBestScore (_lastScore);
 	}
 	
 	// Update is called once per frame

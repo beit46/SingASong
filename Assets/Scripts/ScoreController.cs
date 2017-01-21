@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ScoreController : MonoBehaviour {
 	private float score = 0;
@@ -12,9 +13,18 @@ public class ScoreController : MonoBehaviour {
 	private float numberOfHitToIncreaseMultiplier = 2;
 	private int successfullConsecutiveHits = 0;
 
+	public Live live;
+
 	void Awake() {
 		MainReferences.UIInterface.SetScore(score);
 		MainReferences.UIInterface.SetMultiplier(multiplier);
+		live.OnDead += GoToMainMenu;
+	}
+
+	void GoToMainMenu() {
+		PlayerPrefs.SetInt ("LastScore", (int) score);
+		PlayerPrefs.Save ();
+		SceneManager.LoadScene ("MainMenu");
 	}
 	
 	void CalculateScore() {
