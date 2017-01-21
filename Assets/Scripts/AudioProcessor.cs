@@ -4,27 +4,42 @@ using UnityEngine;
 
 public class AudioProcessor : MonoBehaviour {
 
+	delegate void VolumeInputSingle(float value);
+	VolumeInputSingle volumeInputSingle;
+
+	delegate void VolumeInputContinued(float value);
+	VolumeInputContinued volumeInputContinued;
+
+	const float VOLUME_STEP = 0.04f;
+
 	class Volume {
-		public const float NONE = 0.0f;
-		public const float LOW = 0.02f;
-		public const float MIDDLE = 0.05f;
-		public const float HIGH = 0.08f;
-		public const float FLOW = -1f;
+		public const float NONE   = 0.0f;
+		public const float LOW    = 0.03f;
+		public const float HIGH   = LOW + VOLUME_STEP;
+		public const float FLOW   = -1f;
 	}
 
 	const int THRESHOLD_SINGLE = 5;
+	const int THRESHOLD_ZERO = 3;
 
 	AudioInput _audioInput;
 
-	float _currentVolume; // = Volume.NONE;
-	int _sequenceCount; // = 0;
-	float _toTrigger; // = Volume.NONE;
+	float _currentVolume;
+	int _sequenceCount;
+	int _zeroCount;
+	bool _canSingle;
+
+	float _timeElapsed;
 
 	void Start() {
 		_audioInput = GetComponent<AudioInput> ();
 		_currentVolume = Volume.NONE;
 		_sequenceCount = 0;
-		_toTrigger = Volume.NONE;
+		_timeElapsed = 0f;
+		_canSingle = true;
+		_zeroCount = 0;
+		volumeInputSingle += TriggerSingle;
+		volumeInputContinued += TriggerContinued;
 	}
 
 	void Update() {
@@ -34,9 +49,6 @@ public class AudioProcessor : MonoBehaviour {
 	float GetVolumeCardinal(float volume) {
 		if (volume >= Volume.HIGH) {
 			return Volume.HIGH;
-		} 
-		else if (volume >= Volume.MIDDLE) {
-			return Volume.MIDDLE;
 		}
 		else if (volume >= Volume.LOW) {
 			return Volume.LOW;
@@ -45,45 +57,57 @@ public class AudioProcessor : MonoBehaviour {
 	}
 
 	void UpdateVolumeState(float volume) {
-		float newVolume = GetVolumeCardinal(volume);
-//		if (volume >= 0.02f)
-//			Debug.Log(GetVolumeText(volume));
-		if (newVolume == Volume.NONE) {
-			if (_toTrigger != Volume.NONE && _toTrigger != Volume.FLOW) {
-				TriggerSingle (_toTrigger);
-			}
-			if (_toTrigger != Volume.NONE) {
-				_toTrigger = Volume.NONE;
-			}
-		}
-		else if (newVolume < _currentVolume) {
-			if (_toTrigger == Volume.NONE) {
-				_toTrigger = _currentVolume;
-			}
-			else if (_toTrigger == Volume.FLOW) {
+		_timeElapsed += Time.deltaTime;
+		if (_timeElapsed > 0f) {
+			float newVolume = GetVolumeCardinal (volume);
+			if (newVolume < _currentVolume) {
+				if (newVolume != Volume.NONE || _zeroCount > THRESHOLD_ZERO) {
+					if (_canSingle) {
+						_canSingle = false;
+						volumeInputSingle (_currentVolume);
+					}
+					if (newVolume == Volume.NONE) {
+						_canSingle = true;
+					}
+					_zeroCount = 0;
+				}
+				else {
+					_zeroCount++;
+				}
 				_sequenceCount = 0;
 			}
-		}
-		else if (newVolume == _currentVolume) {
-			if (_sequenceCount > THRESHOLD_SINGLE) {
-				_toTrigger = Volume.FLOW;
-				TriggerFlow (_currentVolume);
+			else if (newVolume == _currentVolume) {
+				if (_sequenceCount > THRESHOLD_SINGLE && newVolume != Volume.NONE) {
+					_canSingle = false;
+					volumeInputContinued (_currentVolume);
+					_zeroCount = 0;
+				}
+				else if (newVolume == Volume.NONE && _zeroCount <= THRESHOLD_ZERO) {
+					_zeroCount++;
+				}
+				else if (newVolume == Volume.NONE) {
+					_canSingle = true;
+					_zeroCount = 0;
+				}
+				else {
+					_sequenceCount++;
+					_zeroCount = 0;
+				}
 			}
-			else {
-				_sequenceCount++;
+			else if (newVolume > _currentVolume) {
+				_sequenceCount = 0;
+				_zeroCount = 0;
 			}
+			_currentVolume = newVolume;
+			_timeElapsed = 0f;
 		}
-		else if (newVolume > _currentVolume) {
-			_sequenceCount = 0;
-		}
-		_currentVolume = newVolume;
 	}
 
 	void TriggerSingle(float volume) {
 		Debug.Log ("Single => " + GetVolumeText(volume));
 	}
 
-	void TriggerFlow(float volume) {
+	void TriggerContinued(float volume) {
 		Debug.Log ("Flow => " + GetVolumeText (volume));
 	}
 
@@ -91,12 +115,13 @@ public class AudioProcessor : MonoBehaviour {
 		if (volume >= Volume.HIGH) {
 			return "HIGH";
 		}
-		else if (volume >= Volume.MIDDLE) {
-			return "MIDDLE";
-		}
 		else if (volume >= Volume.LOW) {
 			return "LOW";
 		}
 		return "NONE";
+	}
+
+	static float CalibrateVolume(float volume) {
+		return volume - (VOLUME_STEP / 2f);
 	}
 }
