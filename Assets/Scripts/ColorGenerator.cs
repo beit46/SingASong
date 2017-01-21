@@ -7,6 +7,8 @@ public class ColorGenerator : MonoBehaviour {
 	public Color colorLight;
 	public Color colorMedium;
 	public Color colorStrong;
+	public Color blueTron;
+
 	public Color colorForType(int type) {
 //		Debug.Log("Color for type " + type);
 		Color color;

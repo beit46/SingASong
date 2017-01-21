@@ -42,7 +42,7 @@ public class TargetSpawner : MonoBehaviour {
 
 	void CreateTargetAndShot() {
 		Target target = Instantiate(TargetPrefab, this.transform.position, Quaternion.identity).GetComponent<Target>();
-		target.Shot(Vector2.down, targetSpeed, (TARGET_TYPE)1); //)(TARGET_TYPE)Random.Range(1, 4));
+		target.Shot(Vector2.down, targetSpeed, (TARGET_TYPE)Random.Range(1, 3));
 		target.OnTargetDestroyed += TargetDestroyed;
 		this.liveTargets.Add(target);
 	}

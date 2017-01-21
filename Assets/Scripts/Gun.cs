@@ -17,7 +17,17 @@ public class Gun : MonoBehaviour {
 
 	void VolumeInputSingle(AudioProcessor.VolumeInput value) {
 		Debug.Log("Volume Input Single " + value);
-		Shot();
+		switch(value) {
+		case AudioProcessor.VolumeInput.LOW:
+			Shot(PROJECTILE_TYPE.LIGHT);
+			break;
+		case AudioProcessor.VolumeInput.HIGH:
+			Shot(PROJECTILE_TYPE.MEDIUM);
+			break;
+		default:
+			break;
+		}
+
 	}
 
 	void VolumeInputContinued(AudioProcessor.VolumeInput value) {
@@ -32,9 +42,9 @@ public class Gun : MonoBehaviour {
 		this.lineSelector.MoveRight();
 	}
 
-	void Shot() {
+	void Shot(PROJECTILE_TYPE type) {
 		Projectile projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity).GetComponent<Projectile>();
-		projectile.Shot(Vector2.up, PROJECTILE_TYPE.LIGHT);
+		projectile.Shot(Vector2.up, type);
 	}
 		
 //	// Update is called once per frame
