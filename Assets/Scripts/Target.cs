@@ -10,6 +10,9 @@ public enum TARGET_TYPE {
 }
 
 public class Target : MonoBehaviour {
+	public RuntimeAnimatorController blueEnemyAnimator;
+	public RuntimeAnimatorController organgeEnemyAnimator;
+
 	public float speed = 10.0f;
 	public TARGET_TYPE type = TARGET_TYPE.NONE;
 	Vector2 direction = Vector2.down;
@@ -21,19 +24,27 @@ public class Target : MonoBehaviour {
 	public TargetEscaped OnTargetEscaped;
 
 	SpriteRenderer spriteRenderer;
+	Animator animator;
 
 	void Awake() {
 		this.spriteRenderer = GetComponent<SpriteRenderer>();
+		this.animator = GetComponent<Animator>();
 	}
 
 	public void Shot(Vector2 direction, float speed, TARGET_TYPE type) {
 		this.direction = direction;
 		this.speed = speed;
 		this.type = type;
-		this.spriteRenderer.color = MainReferences.ColorGenerator.colorForType((int)type);
+
+		if (type == TARGET_TYPE.LIGHT)
+			this.animator.runtimeAnimatorController = blueEnemyAnimator;
+		else
+			this.animator.runtimeAnimatorController = organgeEnemyAnimator;
+		
 	}
 
 	public void Hit() {
+		MainReferences.ScoreController.Miss();
 		NotifyTargetEscaped();
 		Destroy(this.gameObject);
 	}
@@ -48,6 +59,7 @@ public class Target : MonoBehaviour {
 			Projectile projectile = collider.gameObject.GetComponent<Projectile>();
 
 			if ((int)projectile.type == (int)this.type) {
+				MainReferences.ScoreController.Hit();
 				MainReferences.AudioPlayer.PlayEffect();
 				Destroy(projectile.gameObject);
 				Hit();

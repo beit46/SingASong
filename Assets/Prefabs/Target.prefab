@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 61000847201011176}
   - component: {fileID: 114101603534799718}
   - component: {fileID: 50494518194845918}
+  - component: {fileID: 95375904768837888}
   m_Layer: 0
   m_Name: Target
   m_TagString: Target
@@ -37,8 +38,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1962170803584284}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.97, z: 0}
-  m_LocalScale: {x: 20, y: 5, z: 1}
+  m_LocalPosition: {x: 0.05, y: 3.71, z: 0}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -74,9 +75,26 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: -0.00024578572, y: -0.0024154186}
+  m_Offset: {x: -0.016793407, y: 0.056444798}
   serializedVersion: 2
-  m_Size: {x: 0.13788055, y: 0.15516901}
+  m_Size: {x: 4.771462, y: 2.221848}
+--- !u!95 &95375904768837888
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1962170803584284}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 51392c5054aef43e5bfd721f17101c5f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114101603534799718
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -88,6 +106,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4770993583544f4faa48ac2351e61e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blueEnemyAnimator: {fileID: 9100000, guid: 51392c5054aef43e5bfd721f17101c5f, type: 2}
+  organgeEnemyAnimator: {fileID: 9100000, guid: 02887cc356e7a4e0981f0b3a621b53d7,
+    type: 2}
   speed: 10
   type: 0
 --- !u!212 &212041361668057688
@@ -103,7 +124,7 @@ SpriteRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 4400e1f9a723b413090c002b160c4fba, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -121,7 +142,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: ed4e8e96cb3a14174b9a4d3ab987f89a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
