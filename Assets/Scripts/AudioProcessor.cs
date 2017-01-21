@@ -100,11 +100,11 @@ public class AudioProcessor : MonoBehaviour {
 	}
 
 	void TriggerSingle(VolumeInput volume) {
-//		Debug.Log ("Single => " + GetVolumeText(volume));
+		Debug.Log ("Single => " + GetVolumeText(volume));
 	}
 
 	void TriggerContinued(VolumeInput volume) {
-//		Debug.Log ("Flow => " + GetVolumeText(volume));
+		Debug.Log ("Flow => " + GetVolumeText(volume));
 	}
 
 	string GetVolumeText(VolumeInput volume) {
