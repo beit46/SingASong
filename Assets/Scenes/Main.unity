@@ -634,6 +634,7 @@ MonoBehaviour:
   audioProcessor: {fileID: 895026848}
   projectilePrefab: {fileID: 1418356196668264, guid: dfe6f27bbc3f2436994813a3454446e2,
     type: 2}
+  reloadTime: 0.3
 --- !u!114 &813374786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1376,7 +1377,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   koreographerController: {fileID: 1045226288}
-  targetSpeed: 15
+  targetSpeed: 10
   liveTargets: []
   TargetPrefab: {fileID: 1962170803584284, guid: cf7244d78318041b29da0519f3e95659,
     type: 2}

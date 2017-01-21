@@ -7,6 +7,8 @@ public class Gun : MonoBehaviour {
 	public GameObject projectilePrefab;
 
 	private LineSelector lineSelector;
+	private bool isReloading = false;
+	public float reloadTime = 0.3f;
 
 	void Awake() {
 		this.lineSelector = GetComponent<LineSelector>();
@@ -43,8 +45,16 @@ public class Gun : MonoBehaviour {
 	}
 
 	void Shot(PROJECTILE_TYPE type) {
-		Projectile projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity).GetComponent<Projectile>();
-		projectile.Shot(Vector2.up, type);
+		if (!this.isReloading) {
+			Projectile projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity).GetComponent<Projectile>();
+			projectile.Shot(Vector2.up, type);
+			this.isReloading = false;
+			Invoke("Reload", reloadTime);
+		}
+	}
+
+	void Reload() {
+		this.isReloading = false;
 	}
 		
 //	// Update is called once per frame
