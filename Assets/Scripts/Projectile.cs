@@ -23,7 +23,7 @@ public class Projectile : MonoBehaviour {
 	public void Shot(Vector2 direction, PROJECTILE_TYPE type) {
 		this.direction = direction;
 		this.type = type;
-		this.spriteRenderer.color = MainReferences.ColorGenerator.colorForType((int)type);
+//		this.spriteRenderer.color = MainReferences.ColorGenerator.colorForType((int)type);
 	}
 
 	void Update () {
