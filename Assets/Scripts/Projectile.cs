@@ -10,11 +10,15 @@ public enum PROJECTILE_TYPE {
 }
 
 public class Projectile : MonoBehaviour {
+	public RuntimeAnimatorController projectile_blue;
+	public RuntimeAnimatorController projectil_orange;
+
 	public float speed = 40.0f;
 	Vector2 direction = Vector2.up;
 	public PROJECTILE_TYPE type = PROJECTILE_TYPE.NONE;
 
 	SpriteRenderer spriteRenderer;
+	Animator animator;
 	TrailRenderer trailRenderer;
 	ParticleSystem particleSystem;
 
@@ -22,17 +26,23 @@ public class Projectile : MonoBehaviour {
 		this.spriteRenderer = GetComponent<SpriteRenderer>();
 		this.trailRenderer = GetComponent<TrailRenderer>();
 		this.particleSystem = GetComponentInChildren<ParticleSystem>();
+		this.animator = GetComponent<Animator>();
 	}
 
 	public void Shot(Vector2 direction, PROJECTILE_TYPE type) {
 		this.direction = direction;
 		this.type = type;
-		this.spriteRenderer.color = MainReferences.ColorGenerator.colorForType((int)type);
+//		this.spriteRenderer.color = MainReferences.ColorGenerator.colorForType((int)type);
 		ChangeParticleStartingColorOverTime();
 
 //		ParticleSystem.MinMaxGradient gradient = this.particleSystem.main.startColor;
 //		gradient.color = MainReferences.ColorGenerator.colorForType((int)type);
-		this.particleSystem.startColor = MainReferences.ColorGenerator.colorForType((int)type);
+//		this.particleSystem.startColor = MainReferences.ColorGenerator.colorForType((int)type);
+
+		if (type == PROJECTILE_TYPE.LIGHT)
+			this.animator.runtimeAnimatorController = projectile_blue;
+		else
+			this.animator.runtimeAnimatorController = projectil_orange;
 
 	}
 
