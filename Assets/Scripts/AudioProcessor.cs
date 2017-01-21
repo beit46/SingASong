@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class AudioProcessor : MonoBehaviour {
 
-	delegate void VolumeInputSingle(float value);
+	public delegate void VolumeInputSingle(VolumeInput value);
 	VolumeInputSingle volumeInputSingle;
 
-	delegate void VolumeInputContinued(float value);
+	public delegate void VolumeInputContinued(VolumeInput value);
 	VolumeInputContinued volumeInputContinued;
 
 	const float VOLUME_STEP = 0.04f;
@@ -16,7 +16,12 @@ public class AudioProcessor : MonoBehaviour {
 		public const float NONE   = 0.0f;
 		public const float LOW    = 0.03f;
 		public const float HIGH   = LOW + VOLUME_STEP;
-		public const float FLOW   = -1f;
+	}
+
+	public enum VolumeInput {
+		NONE,
+		LOW,
+		HIGH
 	}
 
 	const int THRESHOLD_SINGLE = 5;
@@ -64,7 +69,7 @@ public class AudioProcessor : MonoBehaviour {
 				if (newVolume != Volume.NONE || _zeroCount > THRESHOLD_ZERO) {
 					if (_canSingle) {
 						_canSingle = false;
-						volumeInputSingle (_currentVolume);
+						volumeInputSingle (GetVolumeInput(_currentVolume));
 					}
 					if (newVolume == Volume.NONE) {
 						_canSingle = true;
@@ -79,7 +84,7 @@ public class AudioProcessor : MonoBehaviour {
 			else if (newVolume == _currentVolume) {
 				if (_sequenceCount > THRESHOLD_SINGLE && newVolume != Volume.NONE) {
 					_canSingle = false;
-					volumeInputContinued (_currentVolume);
+					volumeInputContinued (GetVolumeInput(_currentVolume));
 					_zeroCount = 0;
 				}
 				else if (newVolume == Volume.NONE && _zeroCount <= THRESHOLD_ZERO) {
@@ -103,22 +108,32 @@ public class AudioProcessor : MonoBehaviour {
 		}
 	}
 
-	void TriggerSingle(float volume) {
+	void TriggerSingle(VolumeInput volume) {
 		Debug.Log ("Single => " + GetVolumeText(volume));
 	}
 
-	void TriggerContinued(float volume) {
-		Debug.Log ("Flow => " + GetVolumeText (volume));
+	void TriggerContinued(VolumeInput volume) {
+		Debug.Log ("Flow => " + GetVolumeText(volume));
 	}
 
-	string GetVolumeText(float volume) {
-		if (volume >= Volume.HIGH) {
+	string GetVolumeText(VolumeInput volume) {
+		if (volume == VolumeInput.HIGH) {
 			return "HIGH";
 		}
-		else if (volume >= Volume.LOW) {
+		else if (volume == VolumeInput.LOW) {
 			return "LOW";
 		}
 		return "NONE";
+	}
+
+	VolumeInput GetVolumeInput(float volume) {
+		if (volume >= Volume.HIGH) {
+			return VolumeInput.HIGH;
+		}
+		else if (volume >= Volume.LOW) {
+			return VolumeInput.LOW;
+		}
+		return VolumeInput.NONE;
 	}
 
 	static float CalibrateVolume(float volume) {
