@@ -33,6 +33,11 @@ public class Target : MonoBehaviour {
 		this.spriteRenderer.color = MainReferences.ColorGenerator.colorForType((int)type);
 	}
 
+	public void Hit() {
+		NotifyTargetEscaped();
+		Destroy(this.gameObject);
+	}
+
 	// Update is called once per frame
 	void Update () {
 		this.transform.position += (Vector3)direction.normalized * Time.deltaTime * speed;
@@ -44,13 +49,10 @@ public class Target : MonoBehaviour {
 
 			if ((int)projectile.type == (int)this.type) {
 				MainReferences.AudioPlayer.PlayEffect();
-				
-				NotifyTargetDestroyed();
-				
 				Destroy(projectile.gameObject);
-				Destroy(this.gameObject);
+				Hit();
 			}
-		}
+		} 
 	}
 
 	void NotifyTargetDestroyed() {
