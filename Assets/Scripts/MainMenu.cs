@@ -2,17 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour {
 
 	public Text bestScore;
 	public Text lastScore;
+	int _bestScore;
 	public AudioProcessor audioProcessor;
 
 	// Use this for initialization
 	void Start () {
-		audioProcessor.volumeInputSingle += StartGame ();
-		audioProcessor.volumeInputContinued += StartGame ();
+		audioProcessor.volumeInputSingle += StartGame;
+		audioProcessor.volumeInputContinued += StartGame;
+		_bestScore = 0;
 	}
 	
 	// Update is called once per frame
@@ -21,11 +24,14 @@ public class MainMenu : MonoBehaviour {
 	}
 
 	void StartGame() {
-		// Start Game
+		SceneManager.LoadScene ("Main");
 	}
 
 	void setBestScore(int score) {
-		bestScore.name = "Best Score: " + score;
+		if (score > _bestScore) {
+			bestScore.name = "Best Score: " + score;
+			_bestScore = score;
+		}
 	}
 
 	void setLastScore(int score) {

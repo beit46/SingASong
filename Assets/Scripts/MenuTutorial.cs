@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MenuTutorial : MonoBehaviour {
 
@@ -79,7 +80,7 @@ public class MenuTutorial : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (_status == Status.DONE) {
-			// Goto MainMenu
+			SceneManager.LoadScene ("MainMenu");
 		}
 	}
 
@@ -88,8 +89,8 @@ public class MenuTutorial : MonoBehaviour {
 			_countSingleLow++;
 			if (_countSingleLow > 0) {
 				_imageSingleLow.sprite = _spriteCheck;
-				_imageSingleHigh.enabled = true;
-				_textSingleHigh.enabled = true;
+				_imageSingleHigh.gameObject.SetActive(true);
+				_textSingleHigh.gameObject.SetActive(true);
 				_status = Status.SINGLE_HIGH;
 			}
 		}
@@ -97,8 +98,8 @@ public class MenuTutorial : MonoBehaviour {
 			_countSingleHigh++;
 			if (_countSingleHigh > 0) {
 				_imageSingleHigh.sprite = _spriteCheck;
-				_imageContinuedLow.enabled = true;
-				_textContinuedLow.enabled = true;
+				_imageContinuedLow.gameObject.SetActive(true);
+				_textContinuedLow.gameObject.SetActive(true);
 				_status = Status.CONTINUED_LOW;
 			}
 		}
@@ -109,8 +110,8 @@ public class MenuTutorial : MonoBehaviour {
 			_countContinuedLow++;
 			if (_countContinuedLow > 4) {
 				_imageContinuedLow.sprite = _spriteCheck;
-				_imageContinuedHigh.enabled = true;
-				_textContinuedHigh.enabled = true;
+				_imageContinuedHigh.gameObject.SetActive(true);
+				_textContinuedHigh.gameObject.SetActive(true);
 				_status = Status.CONTINUED_HIGH;
 			}
 		}
