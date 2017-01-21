@@ -11,8 +11,8 @@ public class Gun : MonoBehaviour {
 	void Awake() {
 		this.lineSelector = GetComponent<LineSelector>();
 
-		//audioProcessor.volumeInputSingle += VolumeInputSingle;
-		//audioProcessor.volumeInputContinued += VolumeInputContinued;
+		audioProcessor.volumeInputSingle += VolumeInputSingle;
+		audioProcessor.volumeInputContinued += VolumeInputContinued;
 	}
 
 	void VolumeInputSingle(AudioProcessor.VolumeInput value) {
