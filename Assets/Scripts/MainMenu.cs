@@ -36,12 +36,12 @@ public class MainMenu : MonoBehaviour {
 
 	void setBestScore(int score) {
 		if (score > _bestScore) {
-			bestScore.name = "Best Score: " + score;
+			bestScore.text = "Best Score: " + score;
 			_bestScore = score;
 		}
 	}
 
 	void setLastScore(int score) {
-		lastScore.name = "Last Score: " + score;
+		lastScore.text = "Last Score: " + score;
 	}
 }
