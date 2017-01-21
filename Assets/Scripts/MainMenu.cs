@@ -14,7 +14,7 @@ public class MainMenu : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		audioProcessor.volumeInputSingle += StartGame;
+		//audioProcessor.volumeInputSingle += StartGame;
 		audioProcessor.volumeInputContinued += StartGame;
 		_bestScore = 0;
 		_lastScore = 0;
