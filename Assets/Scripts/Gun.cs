@@ -29,7 +29,6 @@ public class Gun : MonoBehaviour {
 		default:
 			break;
 		}
-
 	}
 
 	void VolumeInputContinued(AudioProcessor.VolumeInput value) {

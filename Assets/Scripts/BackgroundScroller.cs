@@ -13,7 +13,7 @@ public class BackgroundScroller : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		this.startPosition = backgrounds[0].transform.position;
-		this.endPosition = backgrounds[2].transform.position;
+		this.endPosition = backgrounds[backgrounds.Count - 1].transform.position;
 		Debug.Log("start position " + this.startPosition);
 		Debug.Log("end position " + this.endPosition);
 	}

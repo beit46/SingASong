@@ -6,6 +6,7 @@ public class MainReferences : MonoBehaviour {
 
 	private static AudioPlayer audioPlayer;
 	private static ColorGenerator colorGenerator;
+	private static UIInterface uiInterface;
 
 	public static AudioPlayer AudioPlayer {
 		get {
@@ -25,4 +26,12 @@ public class MainReferences : MonoBehaviour {
 		private set { colorGenerator = value; }
 	}
 
+	public static UIInterface UIInterface {
+		get {
+			if (uiInterface == null)
+				return uiInterface = GameObject.Find("Canvas").GetComponent<UIInterface>();
+			return uiInterface;
+		}
+		private set { uiInterface = value; }
+	}
 }

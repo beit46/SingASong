@@ -17,6 +17,9 @@ public class Target : MonoBehaviour {
 	public delegate void TargetDestroyed(Target target);
 	public TargetDestroyed OnTargetDestroyed;
 
+	public delegate void TargetEscaped(Target target);
+	public TargetEscaped OnTargetEscaped;
+
 	SpriteRenderer spriteRenderer;
 
 	void Awake() {
@@ -53,10 +56,15 @@ public class Target : MonoBehaviour {
 	void NotifyTargetDestroyed() {
 		if(this.OnTargetDestroyed != null)
 			this.OnTargetDestroyed(this);
+	}	
+	
+	void OnBecameInvisible() {
+		NotifyTargetEscaped();
+		Destroy(gameObject);
 	}
 
-	void OnBecameInvisible() {
-		NotifyTargetDestroyed();
-		Destroy(gameObject);
+	void NotifyTargetEscaped() {
+		if(this.OnTargetEscaped != null)
+			this.OnTargetEscaped(this);
 	}
 }
