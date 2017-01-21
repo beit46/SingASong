@@ -7,6 +7,7 @@ public class MainReferences : MonoBehaviour {
 	private static AudioPlayer audioPlayer;
 	private static ColorGenerator colorGenerator;
 	private static UIInterface uiInterface;
+	private static ScoreController scoreController;
 
 	public static AudioPlayer AudioPlayer {
 		get {
@@ -33,5 +34,14 @@ public class MainReferences : MonoBehaviour {
 			return uiInterface;
 		}
 		private set { uiInterface = value; }
+	}
+
+	public static ScoreController ScoreController {
+		get {
+			if (scoreController == null)
+				return scoreController = GameObject.Find("ScoreController").GetComponent<ScoreController>();
+			return scoreController;
+		}
+		private set { scoreController = value; }
 	}
 }
