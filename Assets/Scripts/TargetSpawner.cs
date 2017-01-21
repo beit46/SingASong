@@ -23,20 +23,28 @@ public class TargetSpawner : MonoBehaviour {
 //	}
 
 	void SpawnTarget() {
-		koreographerController.DecreaseVolumeForDuration(0.6f);
+		koreographerController.DecreaseVolumeForDuration(0.4f);
 
+//		MoveTargetToLeftOrRight();
+		
+		CreateTargetAndShot();
+
+//		this.isSpawning = false;
+	}
+
+	void MoveTargetToLeftOrRight() {
 		int moveTo = Random.Range(0, 3);
 		if(moveTo == 0)
 			lineSelector.MoveLeft();
 		else if(moveTo == 2)
 			lineSelector.MoveRight();
-		
+	}
+
+	void CreateTargetAndShot() {
 		Target target = Instantiate(TargetPrefab, this.transform.position, Quaternion.identity).GetComponent<Target>();
-		target.Shot(Vector2.down, targetSpeed, (TARGET_TYPE)Random.Range(1, 4));
+		target.Shot(Vector2.down, targetSpeed, (TARGET_TYPE)1); //)(TARGET_TYPE)Random.Range(1, 4));
 		target.OnTargetDestroyed += TargetDestroyed;
 		this.liveTargets.Add(target);
-
-//		this.isSpawning = false;
 	}
 
 	void TargetDestroyed(Target target) {

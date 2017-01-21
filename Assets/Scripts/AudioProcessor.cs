@@ -5,10 +5,10 @@ using UnityEngine;
 public class AudioProcessor : MonoBehaviour {
 
 	public delegate void VolumeInputSingle(VolumeInput value);
-	VolumeInputSingle volumeInputSingle;
+	public VolumeInputSingle volumeInputSingle;
 
 	public delegate void VolumeInputContinued(VolumeInput value);
-	VolumeInputContinued volumeInputContinued;
+	public VolumeInputContinued volumeInputContinued;
 
 	const float VOLUME_STEP = 0.04f;
 
@@ -109,11 +109,11 @@ public class AudioProcessor : MonoBehaviour {
 	}
 
 	void TriggerSingle(VolumeInput volume) {
-		Debug.Log ("Single => " + GetVolumeText(volume));
+//		Debug.Log ("Single => " + GetVolumeText(volume));
 	}
 
 	void TriggerContinued(VolumeInput volume) {
-		Debug.Log ("Flow => " + GetVolumeText(volume));
+//		Debug.Log ("Flow => " + GetVolumeText(volume));
 	}
 
 	string GetVolumeText(VolumeInput volume) {

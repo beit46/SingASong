@@ -7,7 +7,7 @@ public class LineSelector : MonoBehaviour {
 	public Transform currentLine = null;
 
 	public void MoveLeft() {
-		Debug.Log("move left");
+//		Debug.Log("move left");
 		int index = lines.IndexOf(currentLine);
 		if(index >= 1) {
 			currentLine = lines[index - 1];
@@ -16,7 +16,7 @@ public class LineSelector : MonoBehaviour {
 	}
 
 	public void MoveRight() {
-		Debug.Log("move right");
+//		Debug.Log("move right");
 		int index = lines.IndexOf(currentLine);
 		if(index <= 1) {
 			currentLine = lines[index + 1];

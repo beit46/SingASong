@@ -16,7 +16,7 @@ public class KoreopgrapherController : MonoBehaviour {
 	}
 
 	void  FireEventDebugLog( KoreographyEvent  koreoEvent) {
-		Debug .Log( "Koreography Event Fired." ); 
+//		Debug .Log( "Koreography Event Fired." ); 
 		NotifyReceivedBeat();
 	}
 
