@@ -1,54 +1,125 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MenuTutorial : MonoBehaviour {
 
-	AudioProcessor _audioProcessor;
+	public AudioProcessor _audioProcessor;
+	Image _imageSingleLow;
+	Image _imageSingleHigh;
+	Image _imageContinuedLow;
+	Image _imageContinuedHigh;
 
-	int _checkSingleLow;
-	int _checkSingleHigh;
-	int _checkContinuedLow;
-	int _checkContinuedHigh;
+	Text _textSingleLow;
+	Text _textSingleHigh;
+	Text _textContinuedLow;
+	Text _textContinuedHigh;
+
+	int _countSingleLow;
+	int _countSingleHigh;
+	int _countContinuedLow;
+	int _countContinuedHigh;
+
+	Status _status;
+
+	public Sprite _spriteCheck;
+
+	enum Status {
+		SINGLE_LOW,
+		SINGLE_HIGH,
+		CONTINUED_LOW,
+		CONTINUED_HIGH,
+		DONE
+	}
 
 	// Use this for initialization
 	void Start () {
-		_checkSingleLow = 0;
-		_checkSingleHigh = 0;
-		_checkContinuedLow = 0;
-		_checkContinuedHigh = 0;
-		_audioProcessor = GetComponent<AudioProcessor> ();
+		_status = Status.SINGLE_LOW;
+
+		_countSingleLow = 0;
+		_countSingleHigh = 0;
+		_countContinuedLow = 0;
+		_countContinuedHigh = 0;
+
 		_audioProcessor.volumeInputSingle += CheckSingle;
 		_audioProcessor.volumeInputContinued += CheckContinued;
+
+		//_spriteCheck = (Sprite)Resources.Load ("Projectile.png", typeof(Sprite));
+
+		foreach (Transform t in this.transform) {
+			if (t.gameObject.name == "SingleLow") {
+				_imageSingleLow = t.GetComponent<Image> ();
+			}
+			else if (t.gameObject.name == "SingleHigh") {
+				_imageSingleHigh = t.GetComponent<Image> ();
+			}
+			else if (t.gameObject.name == "ContinuedLow") {
+				_imageContinuedLow = t.GetComponent<Image> ();
+			}
+			else if (t.gameObject.name == "ContinuedHigh") {
+				_imageContinuedHigh = t.GetComponent<Image> ();
+			}
+			else if (t.gameObject.name == "TextSingleLow") {
+				_textSingleLow = t.GetComponent<Text> ();
+			}
+			else if (t.gameObject.name == "TextSingleHigh") {
+				_textSingleHigh = t.GetComponent<Text> ();
+			}
+			else if (t.gameObject.name == "TextContinuedLow") {
+				_textContinuedLow = t.GetComponent<Text> ();
+			}
+			else if (t.gameObject.name == "TextContinuedHigh") {
+				_textContinuedHigh = t.GetComponent<Text> ();
+			}
+		}
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (TutorialDone ()) {
+		if (_status == Status.DONE) {
 			// Goto MainMenu
 		}
 	}
 
 	void CheckSingle(AudioProcessor.VolumeInput volume) {
-		if (volume == AudioProcessor.VolumeInput.LOW) {
-			_checkSingleLow++;
+		if (_status == Status.SINGLE_LOW && volume == AudioProcessor.VolumeInput.LOW) {
+			_countSingleLow++;
+			if (_countSingleLow > 0) {
+				_imageSingleLow.sprite = _spriteCheck;
+				_imageSingleHigh.enabled = true;
+				_textSingleHigh.enabled = true;
+				_status = Status.SINGLE_HIGH;
+			}
 		}
-		else if (volume == AudioProcessor.VolumeInput.HIGH) {
-			_checkSingleHigh++;
+		else if (_status == Status.SINGLE_HIGH && volume == AudioProcessor.VolumeInput.HIGH) {
+			_countSingleHigh++;
+			if (_countSingleHigh > 0) {
+				_imageSingleHigh.sprite = _spriteCheck;
+				_imageContinuedLow.enabled = true;
+				_textContinuedLow.enabled = true;
+				_status = Status.CONTINUED_LOW;
+			}
 		}
 	}
 
 	void CheckContinued(AudioProcessor.VolumeInput volume) {
-		if (volume == AudioProcessor.VolumeInput.LOW) {
-			_checkContinuedLow++;
+		if (_status == Status.CONTINUED_LOW && volume == AudioProcessor.VolumeInput.LOW) {
+			_countContinuedLow++;
+			if (_countContinuedLow > 4) {
+				_imageContinuedLow.sprite = _spriteCheck;
+				_imageContinuedHigh.enabled = true;
+				_textContinuedHigh.enabled = true;
+				_status = Status.CONTINUED_HIGH;
+			}
 		}
-		else if (volume == AudioProcessor.VolumeInput.HIGH) {
-			_checkContinuedHigh++;
+		else if (_status == Status.CONTINUED_HIGH && volume == AudioProcessor.VolumeInput.HIGH) {
+			_countContinuedHigh++;
+			if (_countContinuedHigh > 4) {
+				_imageContinuedHigh.sprite = _spriteCheck;
+				_status = Status.DONE;
+			}
 		}
-	}
-
-	bool TutorialDone() {
-		return _checkSingleLow > 1 && _checkSingleHigh > 1 &&
-		_checkContinuedLow > 5 && _checkContinuedHigh > 5;
 	}
 }
