@@ -23,6 +23,8 @@ public class TargetSpawner : MonoBehaviour {
 //	}
 
 	void SpawnTarget() {
+		koreographerController.DecreaseVolumeForDuration(0.6f);
+
 		int moveTo = Random.Range(0, 3);
 		if(moveTo == 0)
 			lineSelector.MoveLeft();
@@ -38,6 +40,7 @@ public class TargetSpawner : MonoBehaviour {
 	}
 
 	void TargetDestroyed(Target target) {
+		target.OnTargetDestroyed -= TargetDestroyed;
 		this.liveTargets.Remove(target);
 	}
 }

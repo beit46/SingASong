@@ -7,14 +7,12 @@ public class KoreopgrapherController : MonoBehaviour {
 	public delegate void Beat();
 	public Beat OnBeat;
 
+	private AudioSource audioPlayer;
+
 	// Use this for initialization
 	void Start () {
+		this.audioPlayer = GetComponent<AudioSource>();
 		Koreographer.Instance.RegisterForEvents( "NewKoreographyTrack" , FireEventDebugLog);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 
 	void  FireEventDebugLog( KoreographyEvent  koreoEvent) {
@@ -25,5 +23,14 @@ public class KoreopgrapherController : MonoBehaviour {
 	void NotifyReceivedBeat() {
 		if(this.OnBeat != null)
 			this.OnBeat();
+	}
+
+	public void DecreaseVolumeForDuration(float duration) {
+		this.audioPlayer.volume = 0.6f;
+		Invoke("RestoreVolume", duration);
+	}
+
+	void RestoreVolume() {
+		this.audioPlayer.volume = 1.0f;
 	}
 }
