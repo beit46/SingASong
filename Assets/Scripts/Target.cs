@@ -13,6 +13,9 @@ public class Target : MonoBehaviour {
 	public RuntimeAnimatorController blueEnemyAnimator;
 	public RuntimeAnimatorController organgeEnemyAnimator;
 
+	public GameObject blueExplosion;
+	public GameObject orangeExplosion;
+
 	public float speed = 10.0f;
 	public TARGET_TYPE type = TARGET_TYPE.NONE;
 	Vector2 direction = Vector2.down;
@@ -58,6 +61,8 @@ public class Target : MonoBehaviour {
 			Projectile projectile = collider.gameObject.GetComponent<Projectile>();
 
 			if ((int)projectile.type == (int)this.type) {
+				Explode();
+
 				projectile.didHitTarget = true;
 				MainReferences.AudioPlayer.PlayEffect();
 				Destroy(projectile.gameObject);
@@ -69,6 +74,13 @@ public class Target : MonoBehaviour {
 			}
 			
 		} 
+	}
+
+	void Explode() {
+		if(this.type == TARGET_TYPE.LIGHT)
+			Instantiate(blueExplosion, this.transform.position, Quaternion.identity);
+		else if(this.type == TARGET_TYPE.MEDIUM)
+			Instantiate(orangeExplosion, this.transform.position, Quaternion.identity);
 	}
 
 	void NotifyTargetDestroyed() {

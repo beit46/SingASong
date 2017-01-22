@@ -111,6 +111,10 @@ MonoBehaviour:
   blueEnemyAnimator: {fileID: 9100000, guid: 51392c5054aef43e5bfd721f17101c5f, type: 2}
   organgeEnemyAnimator: {fileID: 9100000, guid: 02887cc356e7a4e0981f0b3a621b53d7,
     type: 2}
+  blueExplosion: {fileID: 1709184495051280, guid: 638f0b266096a4d67bfcd5bb824bc671,
+    type: 2}
+  orangeExplosion: {fileID: 1845412489268700, guid: c5d11a25508eb496597e39042f133033,
+    type: 2}
   speed: 10
   type: 0
 --- !u!114 &114149170261467786
