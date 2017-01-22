@@ -8,4 +8,12 @@ public class SceneSwitcher : MonoBehaviour {
 	public void GoToTutorial() {
 		SceneManager.LoadScene ("Tutorial");
 	}
+
+	public void GoToMainMenu() {
+		SceneManager.LoadScene ("MainMenu");
+	}
+
+	public void GoToCredits () {
+		SceneManager.LoadScene ("Credits");
+	}
 }

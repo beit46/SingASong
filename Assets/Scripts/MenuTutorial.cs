@@ -104,12 +104,12 @@ public class MenuTutorial : MonoBehaviour {
 	}
 
 	void CheckContinued(AudioProcessor.VolumeInput volume) {
-		if (_status == Status.CONTINUED_LOW && (volume == AudioProcessor.VolumeInput.LOW || volume == AudioProcessor.VolumeInput.LOW)) {
+		if (_status == Status.CONTINUED_LOW && (volume == AudioProcessor.VolumeInput.LOW || volume == AudioProcessor.VolumeInput.HIGH)) {
 			_countContinuedLow++;
 			if (_countContinuedLow > 4) {
 				_imageContinuedLow.sprite = _spriteCheck;
-				_imageContinuedHigh.gameObject.SetActive(true);
-				_textContinuedHigh.gameObject.SetActive(true);
+//				_imageContinuedHigh.gameObject.SetActive(true);
+//				_textContinuedHigh.gameObject.SetActive(true);
 				_status = Status.DONE;
 			}
 		}
