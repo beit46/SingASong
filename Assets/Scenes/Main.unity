@@ -159,7 +159,7 @@ SpriteRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 235304730}
+  - {fileID: 1991053438}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -246,106 +246,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &235304730
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 2DxFX/AL/Hologram2
-  m_Shader: {fileID: 4800000, guid: 3c75fed3018ee97449f47d0294e4af67, type: 3}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_CustomRenderQueue: 3000
-  stringTagMap: {}
-  m_SavedProperties:
-    serializedVersion: 2
-    m_TexEnvs:
-    - first:
-        name: _MainTex
-      second:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - first:
-        name: _Alpha
-      second: 0
-    - first:
-        name: _BlendOp
-      second: 0
-    - first:
-        name: _Distortion
-      second: 1
-    - first:
-        name: _DstBlend
-      second: 10
-    - first:
-        name: _Size
-      second: 0
-    - first:
-        name: _SrcBlend
-      second: 1
-    - first:
-        name: _TimeX
-      second: 1.023
-    - first:
-        name: _Z
-      second: 0
-    m_Colors:
-    - first:
-        name: _Color
-      second: {r: 1, g: 1, b: 1, a: 1}
---- !u!21 &271300176
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 2DxFX/AL/Hologram2
-  m_Shader: {fileID: 4800000, guid: 3c75fed3018ee97449f47d0294e4af67, type: 3}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_CustomRenderQueue: 3000
-  stringTagMap: {}
-  m_SavedProperties:
-    serializedVersion: 2
-    m_TexEnvs:
-    - first:
-        name: _MainTex
-      second:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - first:
-        name: _Alpha
-      second: 0
-    - first:
-        name: _BlendOp
-      second: 0
-    - first:
-        name: _Distortion
-      second: 1
-    - first:
-        name: _DstBlend
-      second: 10
-    - first:
-        name: _Size
-      second: 0
-    - first:
-        name: _SrcBlend
-      second: 1
-    - first:
-        name: _TimeX
-      second: 1.023
-    - first:
-        name: _Z
-      second: 0
-    m_Colors:
-    - first:
-        name: _Color
-      second: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &293051989
 GameObject:
   m_ObjectHideFlags: 0
@@ -1353,7 +1253,8 @@ AudioSource:
   m_GameObject: {fileID: 895026846}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243202317565555562, guid: c5987bb660ab0450080525e3a2f8ec5e,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -1573,7 +1474,7 @@ SpriteRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 1957371045}
+  - {fileID: 1097986463}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1628,6 +1529,56 @@ MonoBehaviour:
   Distortion: 1
   Speed: 1.15
   ShaderChange: 0
+--- !u!21 &948646995
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 2DxFX/AL/Hologram2
+  m_Shader: {fileID: 4800000, guid: 3c75fed3018ee97449f47d0294e4af67, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_CustomRenderQueue: 3000
+  stringTagMap: {}
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs:
+    - first:
+        name: _MainTex
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - first:
+        name: _Alpha
+      second: 0
+    - first:
+        name: _BlendOp
+      second: 0
+    - first:
+        name: _Distortion
+      second: 1
+    - first:
+        name: _DstBlend
+      second: 10
+    - first:
+        name: _Size
+      second: 0
+    - first:
+        name: _SrcBlend
+      second: 1
+    - first:
+        name: _TimeX
+      second: 8.691289
+    - first:
+        name: _Z
+      second: 0
+    m_Colors:
+    - first:
+        name: _Color
+      second: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1045226286
 GameObject:
   m_ObjectHideFlags: 0
@@ -1778,7 +1729,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!21 &1095197192
+--- !u!21 &1059467262
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
@@ -1820,7 +1771,57 @@ Material:
       second: 1
     - first:
         name: _TimeX
-      second: 1.023
+      second: 8.691289
+    - first:
+        name: _Z
+      second: 0
+    m_Colors:
+    - first:
+        name: _Color
+      second: {r: 1, g: 1, b: 1, a: 1}
+--- !u!21 &1097986463
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 2DxFX/AL/Hologram2
+  m_Shader: {fileID: 4800000, guid: 3c75fed3018ee97449f47d0294e4af67, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_CustomRenderQueue: 3000
+  stringTagMap: {}
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs:
+    - first:
+        name: _MainTex
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - first:
+        name: _Alpha
+      second: 0
+    - first:
+        name: _BlendOp
+      second: 0
+    - first:
+        name: _Distortion
+      second: 1
+    - first:
+        name: _DstBlend
+      second: 10
+    - first:
+        name: _Size
+      second: 0
+    - first:
+        name: _SrcBlend
+      second: 1
+    - first:
+        name: _TimeX
+      second: 8.691289
     - first:
         name: _Z
       second: 0
@@ -1839,7 +1840,7 @@ GameObject:
   - component: {fileID: 1100113720}
   - component: {fileID: 1100113719}
   m_Layer: 0
-  m_Name: back
+  m_Name: back (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1891,7 +1892,7 @@ SpriteRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 1095197192}
+  - {fileID: 2017061453}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1913,53 +1914,6 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
---- !u!21 &1137891772
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 2DxFX/Standard/Additive
-  m_Shader: {fileID: 4800000, guid: 220b66fa085c1d249a354d7c309f6abf, type: 3}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  m_SavedProperties:
-    serializedVersion: 2
-    m_TexEnvs:
-    - first:
-        name: _MainTex
-      second:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - first:
-        name: _Alpha
-      second: 0
-    - first:
-        name: _ColorMask
-      second: 15
-    - first:
-        name: _Stencil
-      second: 0
-    - first:
-        name: _StencilComp
-      second: 8
-    - first:
-        name: _StencilOp
-      second: 0
-    - first:
-        name: _StencilReadMask
-      second: 255
-    - first:
-        name: _StencilWriteMask
-      second: 255
-    m_Colors:
-    - first:
-        name: _Color
-      second: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1139997506
 GameObject:
   m_ObjectHideFlags: 0
@@ -2645,7 +2599,7 @@ SpriteRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 1943720005}
+  - {fileID: 948646995}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2700,7 +2654,7 @@ MonoBehaviour:
   Distortion: 1
   Speed: 1.15
   ShaderChange: 0
---- !u!21 &1943720005
+--- !u!21 &1991053438
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
@@ -2742,7 +2696,7 @@ Material:
       second: 1
     - first:
         name: _TimeX
-      second: 1.023
+      second: 8.691289
     - first:
         name: _Z
       second: 0
@@ -2750,7 +2704,7 @@ Material:
     - first:
         name: _Color
       second: {r: 1, g: 1, b: 1, a: 1}
---- !u!21 &1957371045
+--- !u!21 &2017061453
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
@@ -2792,10 +2746,57 @@ Material:
       second: 1
     - first:
         name: _TimeX
-      second: 1.023
+      second: 8.691289
     - first:
         name: _Z
       second: 0
+    m_Colors:
+    - first:
+        name: _Color
+      second: {r: 1, g: 1, b: 1, a: 1}
+--- !u!21 &2029684874
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 2DxFX/Standard/Additive
+  m_Shader: {fileID: 4800000, guid: 220b66fa085c1d249a354d7c309f6abf, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs:
+    - first:
+        name: _MainTex
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - first:
+        name: _Alpha
+      second: 0
+    - first:
+        name: _ColorMask
+      second: 15
+    - first:
+        name: _Stencil
+      second: 0
+    - first:
+        name: _StencilComp
+      second: 8
+    - first:
+        name: _StencilOp
+      second: 0
+    - first:
+        name: _StencilReadMask
+      second: 255
+    - first:
+        name: _StencilWriteMask
+      second: 255
     m_Colors:
     - first:
         name: _Color
@@ -2981,7 +2982,7 @@ SpriteRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 271300176}
+  - {fileID: 1059467262}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
