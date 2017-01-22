@@ -58,11 +58,14 @@ public class Target : MonoBehaviour {
 			Projectile projectile = collider.gameObject.GetComponent<Projectile>();
 
 			if ((int)projectile.type == (int)this.type) {
+				projectile.didHitTarget = true;
 				MainReferences.AudioPlayer.PlayEffect();
 				Destroy(projectile.gameObject);
 				NotifyTargetDestroyed();
 				Destroy(this.gameObject);
-			}
+			} else
+				MainReferences.ScoreController.Miss();
+			
 		} 
 	}
 

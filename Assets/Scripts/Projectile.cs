@@ -14,6 +14,10 @@ public class Projectile : MonoBehaviour {
 	Vector2 direction = Vector2.up;
 	public PROJECTILE_TYPE type = PROJECTILE_TYPE.NONE;
 
+	public delegate void ProjectileMissedTarget(Projectile projectile);
+	public ProjectileMissedTarget OnProjectileMissedTarget;
+	public bool didHitTarget = false;
+
 	SpriteRenderer spriteRenderer;
 	TrailRenderer trailRenderer;
 	ParticleSystem particleSystem;
@@ -27,13 +31,7 @@ public class Projectile : MonoBehaviour {
 	public void Shot(Vector2 direction, PROJECTILE_TYPE type) {
 		this.direction = direction;
 		this.type = type;
-//		this.spriteRenderer.color = MainReferences.ColorGenerator.colorForType((int)type);
 		ChangeParticleStartingColorOverTime();
-
-//		ParticleSystem.MinMaxGradient gradient = this.particleSystem.main.startColor;
-//		gradient.color = MainReferences.ColorGenerator.colorForType((int)type);
-//		this.particleSystem.startColor = MainReferences.ColorGenerator.colorForType((int)type);
-
 	}
 
 	void ChangeParticleStartingColorOverTime( ) {
@@ -48,11 +46,16 @@ public class Projectile : MonoBehaviour {
 
 	void Update () {
 		this.transform.position += (Vector3)direction.normalized * Time.deltaTime * speed;
-//		this.trailRenderer.widthMultiplier = Mathf.Lerp(0.5f, 4.0f, 0.3f);
-//		this.trailRenderer.time = Mathf.Lerp(0.03f, 0.2f, 0.05f);
 	}
 
 	void OnBecameInvisible() {
+		if (!this.didHitTarget)
+			NotifyProjectMissedTarget();
 		Destroy(gameObject);
+	}
+
+	void NotifyProjectMissedTarget() {
+		if(this.OnProjectileMissedTarget!= null)
+			this.OnProjectileMissedTarget(this);
 	}
 }

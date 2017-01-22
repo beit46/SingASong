@@ -90,9 +90,9 @@ CircleCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -1.34}
   serializedVersion: 2
-  m_Radius: 0.08880043
+  m_Radius: 2.01
 --- !u!95 &95894883665038700
 Animator:
   serializedVersion: 3
@@ -336,8 +336,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad4e49d4ddb044423b10941ec24a1661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile_blue: {fileID: 9100000, guid: 734c782e8213741519998c52d79b7b51, type: 2}
-  projectil_orange: {fileID: 9100000, guid: 35de9691c2131418186341bc4c96e62a, type: 2}
   speed: 15
   type: 0
 --- !u!114 &114984642673596024

@@ -21,13 +21,13 @@ GameObject:
   - component: {fileID: 4006933644981072}
   - component: {fileID: 212274502050204626}
   - component: {fileID: 114308790369301044}
-  - component: {fileID: 58241573766417310}
   - component: {fileID: 96612140245457356}
   - component: {fileID: 114028809386679338}
   - component: {fileID: 114703742526481150}
   - component: {fileID: 95691169657505488}
   - component: {fileID: 114393090227426744}
   - component: {fileID: 114502736402429354}
+  - component: {fileID: 61908900265752332}
   m_Layer: 0
   m_Name: OrangeProjectile
   m_TagString: Projectile
@@ -79,8 +79,8 @@ Transform:
   m_Father: {fileID: 4006933644981072}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &58241573766417310
-CircleCollider2D:
+--- !u!61 &61908900265752332
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -90,9 +90,9 @@ CircleCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.3322887}
   serializedVersion: 2
-  m_Radius: 0.08880043
+  m_Size: {x: 2.4699998, y: 8.095423}
 --- !u!95 &95691169657505488
 Animator:
   serializedVersion: 3
@@ -290,8 +290,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad4e49d4ddb044423b10941ec24a1661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile_blue: {fileID: 9100000, guid: 734c782e8213741519998c52d79b7b51, type: 2}
-  projectil_orange: {fileID: 9100000, guid: 35de9691c2131418186341bc4c96e62a, type: 2}
   speed: 15
   type: 0
 --- !u!114 &114393090227426744

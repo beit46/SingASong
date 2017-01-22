@@ -74,10 +74,16 @@ public class Gun : MonoBehaviour {
 			else 
 				projectile = Instantiate(projectileOrangePrefab, transform.position, Quaternion.identity).GetComponent<Projectile>();
 
+			projectile.OnProjectileMissedTarget += OnProjectileMissedTarget;
 			projectile.Shot(Vector2.up, type);
 			this.isReloading = true;
 			Invoke("Reload", reloadTime);
 		}
+	}
+
+	void OnProjectileMissedTarget(Projectile projectile) {
+		projectile.OnProjectileMissedTarget -= OnProjectileMissedTarget;
+		this.scoreController.Miss();
 	}
 
 	void Reload() {

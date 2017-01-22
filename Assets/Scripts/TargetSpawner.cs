@@ -29,7 +29,7 @@ public class TargetSpawner : MonoBehaviour {
 	}
 
 	public void KoreographyEventCallback(KoreographyEvent koreographyEvent) {
-		Debug.Log("I got payload " + koreographyEvent.GetIntValue());
+//		Debug.Log("I got payload " + koreographyEvent.GetIntValue());
 		KOREO_EVENT_TYPE koreoEvent = (KOREO_EVENT_TYPE)koreographyEvent.GetIntValue();
 		switch(koreoEvent) {
 		case KOREO_EVENT_TYPE.TARGET:
