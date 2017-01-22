@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using SonicBloom.Koreo;
 public class TargetSpawner : MonoBehaviour {
 	public KoreopgrapherController koreographerController;
 	private LineSelector lineSelector;
@@ -10,15 +10,34 @@ public class TargetSpawner : MonoBehaviour {
 	public GameObject TargetPrefab;
 
 	public TARGET_TYPE nextSpawn = TARGET_TYPE.NONE;
-
+	 
 	public delegate void TargetSpawned();
 	public TargetSpawned OnTargetSpawned;
 
+	public enum KOREO_EVENT_TYPE {
+		NONE,
+		PRE_TARGET,
+		TARGET
+	}
+
 	void Awake() {
 		lineSelector = GetComponent<LineSelector>();
-		this.koreographerController.OnBeat += SpawnTarget;
+//		this.koreographerController.OnBeat += SpawnTarget;
+		Koreographer.Instance.RegisterForEvents("NewKoreographyTrack", KoreographyEventCallback);
 
 		this.nextSpawn = (TARGET_TYPE)Random.Range(1, 3);
+	}
+
+	public void KoreographyEventCallback(KoreographyEvent koreographyEvent) {
+		Debug.Log("I got payload " + koreographyEvent.GetIntValue());
+		KOREO_EVENT_TYPE koreoEvent = (KOREO_EVENT_TYPE)koreographyEvent.GetIntValue();
+		switch(koreoEvent) {
+		case KOREO_EVENT_TYPE.TARGET:
+			this.SpawnTarget();
+			break;
+		default:
+			break;
+		}
 	}
 
 	void SpawnTarget() {

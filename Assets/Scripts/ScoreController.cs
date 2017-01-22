@@ -36,7 +36,7 @@ public class ScoreController : MonoBehaviour {
 				this.multiplier += 0.1f;
 				this.numberOfHitToIncreaseMultiplier *= 1.5f;
 				this.consecutiveHitSuccesfull = 0;
-				Debug.Log("Multiplier " + this.multiplier);
+//				Debug.Log("Multiplier " + this.multiplier);
 			}
 			this.score += scoreStep * multiplier;
 		} else {
