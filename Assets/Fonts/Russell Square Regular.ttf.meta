@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: dc76061ba03ed44b6a29f6a3fd0866ee
+timeCreated: 1485075488
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Russell Square
+  fontNames:
+  - Russell Square
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
