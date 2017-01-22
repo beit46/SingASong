@@ -12,6 +12,7 @@ public class Gun : MonoBehaviour {
 
 	float elapsedTime;
 	bool shieldOn;
+	int shields;
 
 	public delegate void ToggleShield (bool active);
 	public ToggleShield toggleShield;
@@ -27,6 +28,7 @@ public class Gun : MonoBehaviour {
 
 		elapsedTime = 0f;
 		shieldOn = false;
+		shields = 5;
 		toggleShield += UpdateShield;
 	}
 
@@ -50,7 +52,9 @@ public class Gun : MonoBehaviour {
 	void VolumeInputContinued(AudioProcessor.VolumeInput value) {
 		//Debug.Log("Volume Input Continued " + value);
 		elapsedTime = 0f;
-		toggleShield (true);
+		if (shields > 0) {
+			toggleShield (true);
+		}
 	}
 
 	void MoveLeft() {
@@ -114,6 +118,7 @@ public class Gun : MonoBehaviour {
 			shieldOn = true;
 			spriteShield.gameObject.SetActive (true);
 			scoreController.Miss();
+			shields--;
 		}
 		else if (!active && shieldOn) {
 			shieldOn = false;
