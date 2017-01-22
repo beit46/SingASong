@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 95894883665038700}
   - component: {fileID: 114262658534410310}
   - component: {fileID: 114268400803015462}
+  - component: {fileID: 114886744859743458}
   m_Layer: 0
   m_Name: BlueProjectile
   m_TagString: Projectile
@@ -338,6 +339,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 15
   type: 0
+  didHitTarget: 0
+--- !u!114 &114886744859743458
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1579696588847210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24fd81b241ac36f429f4e146a8d439d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ForceMaterial: {fileID: 0}
+  ActiveChange: 1
+  AddShadow: 1
+  ReceivedShadow: 0
+  BlendMode: 0
+  __MainTex2: {fileID: 0}
+  _Alpha: 1
+  Light: 1
+  LightSize: 0.5
+  UseShinyCurve: 1
+  ShinyLightCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  AnimationSpeedReduction: 3
+  Intensity: 1
+  OnlyLight: 0
+  LightBump: 0.05
+  ShaderChange: 0
 --- !u!114 &114984642673596024
 MonoBehaviour:
   m_ObjectHideFlags: 1

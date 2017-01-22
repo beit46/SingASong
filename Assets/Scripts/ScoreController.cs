@@ -54,13 +54,13 @@ public class ScoreController : MonoBehaviour {
 	}
 
 	public void Hit() {
-		Debug.Log("Hit");
+//		Debug.Log("Hit");
 		this.lastShotWasAHit = true;
 		CalculateScore();
 	}
 
 	public void Miss() {
-		Debug.Log("Miss");
+//		Debug.Log("Miss");
 		this.lastShotWasAHit = false;
 		CalculateScore();
 	}

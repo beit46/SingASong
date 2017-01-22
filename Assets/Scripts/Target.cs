@@ -63,8 +63,10 @@ public class Target : MonoBehaviour {
 				Destroy(projectile.gameObject);
 				NotifyTargetDestroyed();
 				Destroy(this.gameObject);
-			} else
-				MainReferences.ScoreController.Miss();
+			} else {
+				projectile.MissedTarget();
+//				MainReferences.ScoreController.Miss();
+			}
 			
 		} 
 	}

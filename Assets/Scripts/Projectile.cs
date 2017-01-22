@@ -34,6 +34,11 @@ public class Projectile : MonoBehaviour {
 		ChangeParticleStartingColorOverTime();
 	}
 
+	public void MissedTarget() {
+		//PLAY WRPNG SOUND
+		this.OnBecameInvisible();
+	}
+
 	void ChangeParticleStartingColorOverTime( ) {
 		var col = this.particleSystem.colorOverLifetime;
 		col.enabled = true;
