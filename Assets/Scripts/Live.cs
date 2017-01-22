@@ -39,7 +39,6 @@ public class Live : MonoBehaviour {
 	
 	void LayoutLives() {
 		float step = 180f / (float)this.livesRepresentation.Count;
-		Debug.Log("Layout lives bar with step " + step);
 		int counter = 0;
 		foreach (Transform t in this.livesRepresentation) {
 			t.rotation = Quaternion.identity;

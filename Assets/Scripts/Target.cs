@@ -64,7 +64,7 @@ public class Target : MonoBehaviour {
 				Explode();
 
 				projectile.didHitTarget = true;
-				MainReferences.AudioPlayer.PlayEffect();
+				MainReferences.AudioPlayer.PlayEffect(AudioPlayer.EFFECT_TYPE.BLUE_EXPLOSION);
 				Destroy(projectile.gameObject);
 				NotifyTargetDestroyed();
 				Destroy(this.gameObject);

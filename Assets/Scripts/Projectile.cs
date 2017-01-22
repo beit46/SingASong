@@ -4,8 +4,8 @@ using UnityEngine;
 
 public enum PROJECTILE_TYPE {
 	NONE,
-	LIGHT,
-	MEDIUM,
+	BLUE,
+	ORANGE,
 	STRONG
 }
 

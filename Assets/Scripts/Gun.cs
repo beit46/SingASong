@@ -38,10 +38,12 @@ public class Gun : MonoBehaviour {
 		if (!shieldOn) {
 			switch (value) {
 			case AudioProcessor.VolumeInput.LOW:
-				Shot (PROJECTILE_TYPE.LIGHT);
+				MainReferences.AudioPlayer.PlayEffect(AudioPlayer.EFFECT_TYPE.BLUE_EXPLOSION);
+				Shot (PROJECTILE_TYPE.BLUE);
 				break;
 			case AudioProcessor.VolumeInput.HIGH:
-				Shot (PROJECTILE_TYPE.MEDIUM);
+				MainReferences.AudioPlayer.PlayEffect(AudioPlayer.EFFECT_TYPE.ORANGE_EXPLOSION);
+				Shot (PROJECTILE_TYPE.ORANGE);
 				break;
 			default:
 				break;
@@ -69,7 +71,7 @@ public class Gun : MonoBehaviour {
 	void Shot(PROJECTILE_TYPE type) {
 		if (!this.isReloading) {
 			Projectile projectile;
-			if (type == PROJECTILE_TYPE.LIGHT) 
+			if (type == PROJECTILE_TYPE.BLUE) 
 				projectile = Instantiate(projectileBluePrefab, transform.position, Quaternion.identity).GetComponent<Projectile>();
 			else 
 				projectile = Instantiate(projectileOrangePrefab, transform.position, Quaternion.identity).GetComponent<Projectile>();
@@ -93,10 +95,10 @@ public class Gun : MonoBehaviour {
 //	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown(KeyCode.A)) {
-			this.Shot(PROJECTILE_TYPE.LIGHT);
+			this.Shot(PROJECTILE_TYPE.BLUE);
 		}
 		if (Input.GetKeyDown(KeyCode.S)) {
-			this.Shot(PROJECTILE_TYPE.MEDIUM);
+			this.Shot(PROJECTILE_TYPE.ORANGE);
 		}
 		elapsedTime += Time.deltaTime;
 		if (shieldOn && elapsedTime > 0.05f) {
