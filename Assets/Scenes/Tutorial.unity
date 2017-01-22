@@ -476,9 +476,9 @@ RectTransform:
   m_Father: {fileID: 1322319095}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 122}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -521}
   m_SizeDelta: {x: 500, y: 101}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1148129271
@@ -554,10 +554,10 @@ RectTransform:
   m_Father: {fileID: 1322319095}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 207}
-  m_SizeDelta: {x: 241.6, y: 55.3}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -436}
+  m_SizeDelta: {x: 241.6, y: 55.299988}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1149155523
 MonoBehaviour:
@@ -674,9 +674,9 @@ RectTransform:
   m_Father: {fileID: 1322319095}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 218}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -425}
   m_SizeDelta: {x: 500, y: 54}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1262422574
@@ -1141,8 +1141,9 @@ GameObject:
   - component: {fileID: 1895355692}
   - component: {fileID: 1895355691}
   - component: {fileID: 1895355693}
+  - component: {fileID: 1895355694}
   m_Layer: 0
-  m_Name: Audio
+  m_Name: AudioPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1154,7 +1155,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1895355689}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 2.3634787, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1272,6 +1273,24 @@ MonoBehaviour:
     HIGH: 0.06
   THRESHOLD_SINGLE: 10
   THRESHOLD_ZERO: 3
+--- !u!114 &1895355694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1895355689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1726f03dc6a35488fb46196a958da079, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orangeProjectileEffect: {fileID: 8300000, guid: b3956e76ec57d4940a4e8a309f73c86c,
+    type: 3}
+  blueProjectileEffect: {fileID: 8300000, guid: 9ed400198780a4d35b5066ca49d5e632,
+    type: 3}
+  orangeExplosionEffect: {fileID: 8300000, guid: 62b25e819fde44404ab17341e82650fb,
+    type: 3}
+  blueExplosionEffect: {fileID: 8300000, guid: e04dc00a425b840f2ae7852bb0276cdd, type: 3}
 --- !u!1 &1897686436
 GameObject:
   m_ObjectHideFlags: 0
