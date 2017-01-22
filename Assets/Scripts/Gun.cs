@@ -89,6 +89,9 @@ public class Gun : MonoBehaviour {
 		if (Input.GetKeyDown(KeyCode.A)) {
 			this.Shot(PROJECTILE_TYPE.LIGHT);
 		}
+		if (Input.GetKeyDown(KeyCode.S)) {
+			this.Shot(PROJECTILE_TYPE.MEDIUM);
+		}
 		elapsedTime += Time.deltaTime;
 		if (shieldOn && elapsedTime > 0.05f) {
 			toggleShield (false);
