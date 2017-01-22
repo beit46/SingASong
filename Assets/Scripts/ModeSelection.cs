@@ -12,14 +12,14 @@ public class ModeSelection : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
-		bool isEasyModeEnabled = true;
+		bool isEasyModeEnabled = false;
 		if(isEasyModeEnabled) {
 			this.simpleMusicPlayer.LoadSong(BPM_120_Koreography);
-			targetSpawner.targetSpeed = 6.0f;
+			targetSpawner.targetSpeed = 5.0f;
 		}
 		else {
 			this.simpleMusicPlayer.LoadSong(BPM_150_Koreography);
-			targetSpawner.targetSpeed = 8.0f;
+			targetSpawner.targetSpeed = 5.0f;
 		}
 	}
 	

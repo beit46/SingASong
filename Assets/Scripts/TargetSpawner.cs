@@ -14,6 +14,9 @@ public class TargetSpawner : MonoBehaviour {
 	public delegate void TargetSpawned();
 	public TargetSpawned OnTargetSpawned;
 
+	int enemyCounter = 0;
+	int speedStep = 30;
+
 	public enum KOREO_EVENT_TYPE {
 		NONE,
 		PRE_TARGET,
@@ -43,9 +46,13 @@ public class TargetSpawner : MonoBehaviour {
 	void SpawnTarget() {
 		koreographerController.DecreaseVolumeForDuration(0.4f);
 
-//		MoveTargetToLeftOrRight();
-		
 		CreateTargetAndShot();
+		this.enemyCounter++;
+		if (this.enemyCounter % speedStep == 0) {
+			Debug.Log("time to increase speed");
+			this.targetSpeed += 0.5f;
+		}
+			
 	}
 
 	void MoveTargetToLeftOrRight() {

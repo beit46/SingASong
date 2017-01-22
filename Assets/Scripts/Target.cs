@@ -48,6 +48,7 @@ public class Target : MonoBehaviour {
 
 	public void Hit() {
 		NotifyTargetEscaped();
+		this.Explode();
 		Destroy(this.gameObject);
 	}
 
