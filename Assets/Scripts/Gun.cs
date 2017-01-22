@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour {
 	public AudioProcessor audioProcessor;
-	public GameObject projectilePrefab;
+	public GameObject projectileBluePrefab;
+	public GameObject projectileOrangePrefab;
 
 	private LineSelector lineSelector;
 	private bool isReloading = false;
@@ -67,7 +68,12 @@ public class Gun : MonoBehaviour {
 
 	void Shot(PROJECTILE_TYPE type) {
 		if (!this.isReloading) {
-			Projectile projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity).GetComponent<Projectile>();
+			Projectile projectile;
+			if (type == PROJECTILE_TYPE.LIGHT) 
+				projectile = Instantiate(projectileBluePrefab, transform.position, Quaternion.identity).GetComponent<Projectile>();
+			else 
+				projectile = Instantiate(projectileOrangePrefab, transform.position, Quaternion.identity).GetComponent<Projectile>();
+
 			projectile.Shot(Vector2.up, type);
 			this.isReloading = true;
 			Invoke("Reload", reloadTime);
@@ -82,6 +88,9 @@ public class Gun : MonoBehaviour {
 	void Update () {
 		if (Input.GetKeyDown(KeyCode.A)) {
 			this.Shot(PROJECTILE_TYPE.LIGHT);
+		}
+		if (Input.GetKeyDown(KeyCode.S)) {
+			this.Shot(PROJECTILE_TYPE.MEDIUM);
 		}
 		elapsedTime += Time.deltaTime;
 		if (shieldOn && elapsedTime > 0.05f) {

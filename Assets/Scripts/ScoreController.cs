@@ -28,17 +28,19 @@ public class ScoreController : MonoBehaviour {
 	}
 	
 	void CalculateScore() {
-
 		if (this.lastShotWasAHit) {
 			this.consecutiveHitSuccesfull++;
+//			Debug.Log("Consecutive hit succesfull " + this.consecutiveHitSuccesfull);
 			if (this.consecutiveHitSuccesfull >= this.numberOfHitToIncreaseMultiplier) {
 				//Increase multipilier
 				this.multiplier += 0.1f;
 				this.numberOfHitToIncreaseMultiplier *= 1.5f;
 				this.consecutiveHitSuccesfull = 0;
+				Debug.Log("Multiplier " + this.multiplier);
 			}
 			this.score += scoreStep * multiplier;
 		} else {
+//			Debug.Log("Reset multiplier");
 			this.multiplier = 1.0f;
 			this.numberOfHitToIncreaseMultiplier = 2f;
 			this.consecutiveHitSuccesfull = 0;
@@ -49,6 +51,7 @@ public class ScoreController : MonoBehaviour {
 	}
 
 	public void Hit() {
+//		Debug.Log("Hit");
 		this.lastShotWasAHit = true;
 		CalculateScore();
 	}
