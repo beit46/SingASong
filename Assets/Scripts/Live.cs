@@ -8,13 +8,20 @@ public class Live : MonoBehaviour {
 
 	public delegate void Dead ();
 	public Dead OnDead;
+	Gun gun;
+
+	void Start() {
+		gun = GetComponent<Gun>();
+	}
 
 	public void Hit() {
-		this.currentLives--;
-		MainReferences.UIInterface.SetLives(currentLives);
+		if (!gun.ShieldOn ()) {
+			this.currentLives--;
+			MainReferences.UIInterface.SetLives (currentLives);
 
-		if(this.currentLives <= 0)
-			this.NotifyDead();
+			if (this.currentLives <= 0)
+				this.NotifyDead ();
+		}
 	}
 
 	void NotifyDead() {
