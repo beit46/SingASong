@@ -11,13 +11,11 @@ public class ModeSelection : MonoBehaviour {
 	public Koreography BPM_150_Koreography;
 	public TargetSpawner targetSpawner;
 
-<<<<<<< HEAD
 	public Transform backgrounds;
 	public Sprite backGroundEasyNorm;
 	public Sprite backGroundEasyCroce;
 	public Sprite backGroundHardNorm;
 	public Sprite backGroundHardCroce;
-=======
 
 	public void KoreographyEventCallback(KoreographyEvent koreographyEvent) {
 		//		Debug.Log("I got payload " + koreographyEvent.GetIntValue());
@@ -30,7 +28,6 @@ public class ModeSelection : MonoBehaviour {
 			break;
 		}
 	}
->>>>>>> 11c8a2f3f7023c19c343cae6c5e49456448a9044
 
 	// Use this for initialization
 	void Awake () {
