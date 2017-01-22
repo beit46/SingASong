@@ -8,21 +8,20 @@ public class MainMenu : MonoBehaviour {
 
 	public Text bestScore;
 	public Text lastScore;
-	int _bestScore;
-	int _lastScore;
 	public AudioProcessor audioProcessor;
 
 	// Use this for initialization
 	void Start () {
 		//audioProcessor.volumeInputSingle += StartGame;
 		audioProcessor.volumeInputContinued += StartGame;
-		_bestScore = 0;
-		_lastScore = 0;
+
 		if (PlayerPrefs.HasKey ("LastScore")) {
-			_lastScore = PlayerPrefs.GetInt ("LastScore");
+			bestScore.text = PlayerPrefs.GetInt("BestScore").ToString();
 		}
-		setLastScore (_lastScore);
-		setBestScore (_lastScore);
+
+		if (PlayerPrefs.HasKey ("BestScore")) {
+			lastScore.text = PlayerPrefs.GetInt("LastScore").ToString();
+		}
 	}
 	
 	// Update is called once per frame
@@ -32,16 +31,5 @@ public class MainMenu : MonoBehaviour {
 
 	void StartGame(AudioProcessor.VolumeInput volume) {
 		SceneManager.LoadScene ("Main");
-	}
-
-	void setBestScore(int score) {
-		if (score > _bestScore) {
-			bestScore.text = "Best Score: " + score;
-			_bestScore = score;
-		}
-	}
-
-	void setLastScore(int score) {
-		lastScore.text = "Last Score: " + score;
 	}
 }

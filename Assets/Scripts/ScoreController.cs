@@ -23,6 +23,9 @@ public class ScoreController : MonoBehaviour {
 
 	void GoToMainMenu() {
 		PlayerPrefs.SetInt ("LastScore", (int) score);
+		if (!PlayerPrefs.HasKey ("BestScore") || (int) score > PlayerPrefs.GetInt("BestScore")) {
+			PlayerPrefs.SetInt ("BestScore", (int) score);
+		}
 		PlayerPrefs.Save ();
 		SceneManager.LoadScene ("MainMenu");
 	}
