@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using SonicBloom.Koreo;
 using SonicBloom.Koreo.Players;
+using UnityEngine.SceneManagement;
 
 public class ModeSelection : MonoBehaviour {
 	public SimpleMusicPlayer simpleMusicPlayer;
@@ -10,15 +11,34 @@ public class ModeSelection : MonoBehaviour {
 	public Koreography BPM_150_Koreography;
 	public TargetSpawner targetSpawner;
 
+<<<<<<< HEAD
 	public Transform backgrounds;
 	public Sprite backGroundEasyNorm;
 	public Sprite backGroundEasyCroce;
 	public Sprite backGroundHardNorm;
 	public Sprite backGroundHardCroce;
+=======
+
+	public void KoreographyEventCallback(KoreographyEvent koreographyEvent) {
+		//		Debug.Log("I got payload " + koreographyEvent.GetIntValue());
+		TargetSpawner.KOREO_EVENT_TYPE koreoEvent = (TargetSpawner.KOREO_EVENT_TYPE)koreographyEvent.GetIntValue();
+		switch(koreoEvent) {
+		case TargetSpawner.KOREO_EVENT_TYPE.SONG_END:
+				SceneManager.LoadScene ("MainMenu");
+			break;
+		default:
+			break;
+		}
+	}
+>>>>>>> 11c8a2f3f7023c19c343cae6c5e49456448a9044
 
 	// Use this for initialization
 	void Awake () {
-		bool isEasyModeEnabled = false;
+		Koreographer.Instance.RegisterForEvents("NewKoreographyTrack", KoreographyEventCallback);
+
+		string difficulty = PlayerPrefs.GetString ("Track");
+
+		bool isEasyModeEnabled = difficulty == "easy";
 		if(isEasyModeEnabled) {
 			this.simpleMusicPlayer.LoadSong(BPM_120_Koreography);
 			targetSpawner.targetSpeed = 5.0f;

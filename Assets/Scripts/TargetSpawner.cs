@@ -20,7 +20,8 @@ public class TargetSpawner : MonoBehaviour {
 	public enum KOREO_EVENT_TYPE {
 		NONE,
 		PRE_TARGET,
-		TARGET
+		TARGET,
+		SONG_END
 	}
 
 	void Awake() {
