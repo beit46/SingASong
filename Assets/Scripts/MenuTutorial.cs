@@ -46,8 +46,6 @@ public class MenuTutorial : MonoBehaviour {
 		_audioProcessor.volumeInputSingle += CheckSingle;
 		_audioProcessor.volumeInputContinued += CheckContinued;
 
-		//_spriteCheck = (Sprite)Resources.Load ("Projectile.png", typeof(Sprite));
-
 		foreach (Transform t in this.transform) {
 			if (t.gameObject.name == "SingleLow") {
 				_imageSingleLow = t.GetComponent<Image> ();
@@ -106,21 +104,21 @@ public class MenuTutorial : MonoBehaviour {
 	}
 
 	void CheckContinued(AudioProcessor.VolumeInput volume) {
-		if (_status == Status.CONTINUED_LOW && volume == AudioProcessor.VolumeInput.LOW) {
+		if (_status == Status.CONTINUED_LOW && (volume == AudioProcessor.VolumeInput.LOW || volume == AudioProcessor.VolumeInput.HIGH)) {
 			_countContinuedLow++;
 			if (_countContinuedLow > 4) {
 				_imageContinuedLow.sprite = _spriteCheck;
-				_imageContinuedHigh.gameObject.SetActive(true);
-				_textContinuedHigh.gameObject.SetActive(true);
-				_status = Status.CONTINUED_HIGH;
-			}
-		}
-		else if (_status == Status.CONTINUED_HIGH && volume == AudioProcessor.VolumeInput.HIGH) {
-			_countContinuedHigh++;
-			if (_countContinuedHigh > 4) {
-				_imageContinuedHigh.sprite = _spriteCheck;
+//				_imageContinuedHigh.gameObject.SetActive(true);
+//				_textContinuedHigh.gameObject.SetActive(true);
 				_status = Status.DONE;
 			}
 		}
+//		else if (_status == Status.CONTINUED_HIGH && volume == AudioProcessor.VolumeInput.HIGH) {
+//			_countContinuedHigh++;
+//			if (_countContinuedHigh > 4) {
+//				_imageContinuedHigh.sprite = _spriteCheck;
+//				_status = Status.DONE;
+//			}
+//		}
 	}
 }

@@ -10,7 +10,7 @@ public class ScoreController : MonoBehaviour {
 	private int consecutiveHitSuccesfull = 0;
 	private bool lastShotWasAHit = false;
 
-	private float numberOfHitToIncreaseMultiplier = 2;
+	private float numberOfHitToIncreaseMultiplier = 2f;
 	private int successfullConsecutiveHits = 0;
 
 	public Live live;
@@ -40,11 +40,10 @@ public class ScoreController : MonoBehaviour {
 			this.score += scoreStep * multiplier;
 		} else {
 			this.multiplier = 1.0f;
+			this.numberOfHitToIncreaseMultiplier = 2f;
 			this.consecutiveHitSuccesfull = 0;
 		}
-
-
-
+			
 		MainReferences.UIInterface.SetScore(score);
 		MainReferences.UIInterface.SetMultiplier(multiplier);	
 	}
