@@ -38,11 +38,11 @@ public class Gun : MonoBehaviour {
 		if (!shieldOn) {
 			switch (value) {
 			case AudioProcessor.VolumeInput.LOW:
-				MainReferences.AudioPlayer.PlayEffect(AudioPlayer.EFFECT_TYPE.BLUE_EXPLOSION);
+				MainReferences.AudioPlayer.PlayEffect(AudioPlayer.EFFECT_TYPE.BLUE_PROJECTILE);
 				Shot (PROJECTILE_TYPE.BLUE);
 				break;
 			case AudioProcessor.VolumeInput.HIGH:
-				MainReferences.AudioPlayer.PlayEffect(AudioPlayer.EFFECT_TYPE.ORANGE_EXPLOSION);
+				MainReferences.AudioPlayer.PlayEffect(AudioPlayer.EFFECT_TYPE.ORANGE_PROJECTILE);
 				Shot (PROJECTILE_TYPE.ORANGE);
 				break;
 			default:

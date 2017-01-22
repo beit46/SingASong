@@ -41,7 +41,7 @@ public class TargetPreview : MonoBehaviour {
 	}
 
 	void PreviewNextEnemy() {
-		if (spawner.nextSpawn == TARGET_TYPE.LIGHT)
+		if (spawner.nextSpawn == TARGET_TYPE.BLUE)
 			this.animator.runtimeAnimatorController = blueEnemyAnimator;
 		else
 			this.animator.runtimeAnimatorController = organgeEnemyAnimator;

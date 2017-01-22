@@ -4,8 +4,8 @@ using UnityEngine;
 
 public enum TARGET_TYPE {
 	NONE,
-	LIGHT,
-	MEDIUM,
+	BLUE,
+	ORANGE,
 	STRONG
 }
 
@@ -39,7 +39,7 @@ public class Target : MonoBehaviour {
 		this.speed = speed;
 		this.type = type;
 
-		if (type == TARGET_TYPE.LIGHT)
+		if (type == TARGET_TYPE.BLUE)
 			this.animator.runtimeAnimatorController = blueEnemyAnimator;
 		else
 			this.animator.runtimeAnimatorController = organgeEnemyAnimator;
@@ -64,7 +64,7 @@ public class Target : MonoBehaviour {
 				Explode();
 
 				projectile.didHitTarget = true;
-				MainReferences.AudioPlayer.PlayEffect(AudioPlayer.EFFECT_TYPE.BLUE_EXPLOSION);
+
 				Destroy(projectile.gameObject);
 				NotifyTargetDestroyed();
 				Destroy(this.gameObject);
@@ -77,10 +77,13 @@ public class Target : MonoBehaviour {
 	}
 
 	void Explode() {
-		if(this.type == TARGET_TYPE.LIGHT)
+		if(this.type == TARGET_TYPE.BLUE) {
+			MainReferences.AudioPlayer.PlayEffect(AudioPlayer.EFFECT_TYPE.BLUE_EXPLOSION);
 			Instantiate(blueExplosion, this.transform.position, Quaternion.identity);
-		else if(this.type == TARGET_TYPE.MEDIUM)
+		} else if(this.type == TARGET_TYPE.ORANGE) {
+			MainReferences.AudioPlayer.PlayEffect(AudioPlayer.EFFECT_TYPE.ORANGE_EXPLOSION);
 			Instantiate(orangeExplosion, this.transform.position, Quaternion.identity);
+		}
 	}
 
 	void NotifyTargetDestroyed() {

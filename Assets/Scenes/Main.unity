@@ -91,6 +91,106 @@ NavMeshSettings:
     cellSize: 0.16666667
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
+--- !u!21 &27200799
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 2DxFX/AL/Hologram2
+  m_Shader: {fileID: 4800000, guid: 3c75fed3018ee97449f47d0294e4af67, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_CustomRenderQueue: 3000
+  stringTagMap: {}
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs:
+    - first:
+        name: _MainTex
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - first:
+        name: _Alpha
+      second: 0
+    - first:
+        name: _BlendOp
+      second: 0
+    - first:
+        name: _Distortion
+      second: 1
+    - first:
+        name: _DstBlend
+      second: 10
+    - first:
+        name: _Size
+      second: 0
+    - first:
+        name: _SrcBlend
+      second: 1
+    - first:
+        name: _TimeX
+      second: 2.0364854
+    - first:
+        name: _Z
+      second: 0
+    m_Colors:
+    - first:
+        name: _Color
+      second: {r: 1, g: 1, b: 1, a: 1}
+--- !u!21 &29320780
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 2DxFX/AL/Hologram2
+  m_Shader: {fileID: 4800000, guid: 3c75fed3018ee97449f47d0294e4af67, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_CustomRenderQueue: 3000
+  stringTagMap: {}
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs:
+    - first:
+        name: _MainTex
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - first:
+        name: _Alpha
+      second: 0
+    - first:
+        name: _BlendOp
+      second: 0
+    - first:
+        name: _Distortion
+      second: 1
+    - first:
+        name: _DstBlend
+      second: 10
+    - first:
+        name: _Size
+      second: 0
+    - first:
+        name: _SrcBlend
+      second: 1
+    - first:
+        name: _TimeX
+      second: 2.0364854
+    - first:
+        name: _Z
+      second: 0
+    m_Colors:
+    - first:
+        name: _Color
+      second: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &37606563
 GameObject:
   m_ObjectHideFlags: 0
@@ -159,7 +259,7 @@ SpriteRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 243275308}
+  - {fileID: 625230310}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -246,56 +346,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &243275308
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 2DxFX/AL/Hologram2
-  m_Shader: {fileID: 4800000, guid: 3c75fed3018ee97449f47d0294e4af67, type: 3}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_CustomRenderQueue: 3000
-  stringTagMap: {}
-  m_SavedProperties:
-    serializedVersion: 2
-    m_TexEnvs:
-    - first:
-        name: _MainTex
-      second:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - first:
-        name: _Alpha
-      second: 0
-    - first:
-        name: _BlendOp
-      second: 0
-    - first:
-        name: _Distortion
-      second: 1
-    - first:
-        name: _DstBlend
-      second: 10
-    - first:
-        name: _Size
-      second: 0
-    - first:
-        name: _SrcBlend
-      second: 1
-    - first:
-        name: _TimeX
-      second: 1
-    - first:
-        name: _Z
-      second: 0
-    m_Colors:
-    - first:
-        name: _Color
-      second: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &293051989
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,112 +373,12 @@ Transform:
   m_Children:
   - {fileID: 52307220}
   - {fileID: 935507801}
-  - {fileID: 1887070910}
   - {fileID: 2109873356}
+  - {fileID: 1887070910}
   - {fileID: 1100113718}
   m_Father: {fileID: 1439984378}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &318804377
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 2DxFX/AL/Hologram2
-  m_Shader: {fileID: 4800000, guid: 3c75fed3018ee97449f47d0294e4af67, type: 3}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_CustomRenderQueue: 3000
-  stringTagMap: {}
-  m_SavedProperties:
-    serializedVersion: 2
-    m_TexEnvs:
-    - first:
-        name: _MainTex
-      second:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - first:
-        name: _Alpha
-      second: 0
-    - first:
-        name: _BlendOp
-      second: 0
-    - first:
-        name: _Distortion
-      second: 1
-    - first:
-        name: _DstBlend
-      second: 10
-    - first:
-        name: _Size
-      second: 0
-    - first:
-        name: _SrcBlend
-      second: 1
-    - first:
-        name: _TimeX
-      second: 1
-    - first:
-        name: _Z
-      second: 0
-    m_Colors:
-    - first:
-        name: _Color
-      second: {r: 1, g: 1, b: 1, a: 1}
---- !u!21 &328551910
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 2DxFX/AL/Hologram2
-  m_Shader: {fileID: 4800000, guid: 3c75fed3018ee97449f47d0294e4af67, type: 3}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_CustomRenderQueue: 3000
-  stringTagMap: {}
-  m_SavedProperties:
-    serializedVersion: 2
-    m_TexEnvs:
-    - first:
-        name: _MainTex
-      second:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - first:
-        name: _Alpha
-      second: 0
-    - first:
-        name: _BlendOp
-      second: 0
-    - first:
-        name: _Distortion
-      second: 1
-    - first:
-        name: _DstBlend
-      second: 10
-    - first:
-        name: _Size
-      second: 0
-    - first:
-        name: _SrcBlend
-      second: 1
-    - first:
-        name: _TimeX
-      second: 1
-    - first:
-        name: _Z
-      second: 0
-    m_Colors:
-    - first:
-        name: _Color
-      second: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &336949725 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1962170803584284, guid: cf7244d78318041b29da0519f3e95659,
@@ -454,6 +404,103 @@ MonoBehaviour:
   organgeEnemyAnimator: {fileID: 9100000, guid: 02887cc356e7a4e0981f0b3a621b53d7,
     type: 2}
   spawner: {fileID: 1879962414}
+--- !u!21 &392899882
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 2DxFX/AL/Hologram2
+  m_Shader: {fileID: 4800000, guid: 3c75fed3018ee97449f47d0294e4af67, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_CustomRenderQueue: 3000
+  stringTagMap: {}
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs:
+    - first:
+        name: _MainTex
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - first:
+        name: _Alpha
+      second: 0
+    - first:
+        name: _BlendOp
+      second: 0
+    - first:
+        name: _Distortion
+      second: 1
+    - first:
+        name: _DstBlend
+      second: 10
+    - first:
+        name: _Size
+      second: 0
+    - first:
+        name: _SrcBlend
+      second: 1
+    - first:
+        name: _TimeX
+      second: 2.0364854
+    - first:
+        name: _Z
+      second: 0
+    m_Colors:
+    - first:
+        name: _Color
+      second: {r: 1, g: 1, b: 1, a: 1}
+--- !u!21 &514614313
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 2DxFX/Standard/Additive
+  m_Shader: {fileID: 4800000, guid: 220b66fa085c1d249a354d7c309f6abf, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs:
+    - first:
+        name: _MainTex
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - first:
+        name: _Alpha
+      second: 0
+    - first:
+        name: _ColorMask
+      second: 15
+    - first:
+        name: _Stencil
+      second: 0
+    - first:
+        name: _StencilComp
+      second: 8
+    - first:
+        name: _StencilOp
+      second: 0
+    - first:
+        name: _StencilReadMask
+      second: 255
+    - first:
+        name: _StencilWriteMask
+      second: 255
+    m_Colors:
+    - first:
+        name: _Color
+      second: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &525193193
 GameObject:
   m_ObjectHideFlags: 0
@@ -787,6 +834,56 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bloomOptimized: {fileID: 594354185}
+--- !u!21 &625230310
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 2DxFX/AL/Hologram2
+  m_Shader: {fileID: 4800000, guid: 3c75fed3018ee97449f47d0294e4af67, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_CustomRenderQueue: 3000
+  stringTagMap: {}
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs:
+    - first:
+        name: _MainTex
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - first:
+        name: _Alpha
+      second: 0
+    - first:
+        name: _BlendOp
+      second: 0
+    - first:
+        name: _Distortion
+      second: 1
+    - first:
+        name: _DstBlend
+      second: 10
+    - first:
+        name: _Size
+      second: 0
+    - first:
+        name: _SrcBlend
+      second: 1
+    - first:
+        name: _TimeX
+      second: 2.0364854
+    - first:
+        name: _Z
+      second: 0
+    m_Colors:
+    - first:
+        name: _Color
+      second: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &626552984
 GameObject:
   m_ObjectHideFlags: 0
@@ -905,7 +1002,7 @@ Prefab:
         type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 1552806511}
+      objectReference: {fileID: 514614313}
     - target: {fileID: 212041361668057688, guid: cf7244d78318041b29da0519f3e95659,
         type: 2}
       propertyPath: m_Color.a
@@ -1030,6 +1127,56 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   live: {fileID: 813374787}
+--- !u!21 &696476626
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 2DxFX/AL/Hologram2
+  m_Shader: {fileID: 4800000, guid: 3c75fed3018ee97449f47d0294e4af67, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_CustomRenderQueue: 3000
+  stringTagMap: {}
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs:
+    - first:
+        name: _MainTex
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - first:
+        name: _Alpha
+      second: 0
+    - first:
+        name: _BlendOp
+      second: 0
+    - first:
+        name: _Distortion
+      second: 1
+    - first:
+        name: _DstBlend
+      second: 10
+    - first:
+        name: _Size
+      second: 0
+    - first:
+        name: _SrcBlend
+      second: 1
+    - first:
+        name: _TimeX
+      second: 2.0364854
+    - first:
+        name: _Z
+      second: 0
+    m_Colors:
+    - first:
+        name: _Color
+      second: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &698079994
 GameObject:
   m_ObjectHideFlags: 0
@@ -1060,10 +1207,10 @@ RectTransform:
   m_Father: {fileID: 1449216648}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -118, y: -312}
-  m_SizeDelta: {x: 221.44, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 125, y: 16.5}
+  m_SizeDelta: {x: 224, y: 33}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &698079996
 MonoBehaviour:
@@ -1091,7 +1238,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -1365,7 +1512,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1582,7 +1729,7 @@ SpriteRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 935561039}
+  - {fileID: 392899882}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1637,56 +1784,6 @@ MonoBehaviour:
   Distortion: 1
   Speed: 1.15
   ShaderChange: 0
---- !u!21 &935561039
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 2DxFX/AL/Hologram2
-  m_Shader: {fileID: 4800000, guid: 3c75fed3018ee97449f47d0294e4af67, type: 3}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_CustomRenderQueue: 3000
-  stringTagMap: {}
-  m_SavedProperties:
-    serializedVersion: 2
-    m_TexEnvs:
-    - first:
-        name: _MainTex
-      second:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - first:
-        name: _Alpha
-      second: 0
-    - first:
-        name: _BlendOp
-      second: 0
-    - first:
-        name: _Distortion
-      second: 1
-    - first:
-        name: _DstBlend
-      second: 10
-    - first:
-        name: _Size
-      second: 0
-    - first:
-        name: _SrcBlend
-      second: 1
-    - first:
-        name: _TimeX
-      second: 1
-    - first:
-        name: _Z
-      second: 0
-    m_Colors:
-    - first:
-        name: _Color
-      second: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1045226286
 GameObject:
   m_ObjectHideFlags: 0
@@ -1768,7 +1865,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1900,7 +1997,7 @@ SpriteRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 328551910}
+  - {fileID: 696476626}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2095,53 +2192,6 @@ MonoBehaviour:
   OnlyLight: 0
   LightBump: 0.05
   ShaderChange: 0
---- !u!21 &1342359152
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 2DxFX/Standard/Additive
-  m_Shader: {fileID: 4800000, guid: 220b66fa085c1d249a354d7c309f6abf, type: 3}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  m_SavedProperties:
-    serializedVersion: 2
-    m_TexEnvs:
-    - first:
-        name: _MainTex
-      second:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - first:
-        name: _Alpha
-      second: 0
-    - first:
-        name: _ColorMask
-      second: 15
-    - first:
-        name: _Stencil
-      second: 0
-    - first:
-        name: _StencilComp
-      second: 8
-    - first:
-        name: _StencilOp
-      second: 0
-    - first:
-        name: _StencilReadMask
-      second: 255
-    - first:
-        name: _StencilWriteMask
-      second: 255
-    m_Colors:
-    - first:
-        name: _Color
-      second: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1439984377
 GameObject:
   m_ObjectHideFlags: 0
@@ -2355,7 +2405,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 611de868ba58b40759bf6486750ed38d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2544,7 +2594,7 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
---- !u!21 &1552806511
+--- !u!21 &1556764580
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
@@ -2621,10 +2671,10 @@ RectTransform:
   m_Father: {fileID: 1449216648}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -218, y: 159}
-  m_SizeDelta: {x: 160, y: 300}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 28, y: -150}
+  m_SizeDelta: {x: 55, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1562176126
 MonoBehaviour:
@@ -2728,56 +2778,6 @@ Material:
     - first:
         name: _Value4
       second: 0
-    - first:
-        name: _Z
-      second: 0
-    m_Colors:
-    - first:
-        name: _Color
-      second: {r: 1, g: 1, b: 1, a: 1}
---- !u!21 &1592788353
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 2DxFX/AL/Hologram2
-  m_Shader: {fileID: 4800000, guid: 3c75fed3018ee97449f47d0294e4af67, type: 3}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_CustomRenderQueue: 3000
-  stringTagMap: {}
-  m_SavedProperties:
-    serializedVersion: 2
-    m_TexEnvs:
-    - first:
-        name: _MainTex
-      second:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - first:
-        name: _Alpha
-      second: 0
-    - first:
-        name: _BlendOp
-      second: 0
-    - first:
-        name: _Distortion
-      second: 1
-    - first:
-        name: _DstBlend
-      second: 10
-    - first:
-        name: _Size
-      second: 0
-    - first:
-        name: _SrcBlend
-      second: 1
-    - first:
-        name: _TimeX
-      second: 1
     - first:
         name: _Z
       second: 0
@@ -2914,7 +2914,7 @@ SpriteRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 318804377}
+  - {fileID: 27200799}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2947,7 +2947,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 293051990}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1887070911
 MonoBehaviour:
@@ -3135,7 +3135,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 293051990}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2109873357
 SpriteRenderer:
@@ -3150,7 +3150,7 @@ SpriteRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 1592788353}
+  - {fileID: 29320780}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
