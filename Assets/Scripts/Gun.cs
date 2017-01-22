@@ -55,9 +55,9 @@ public class Gun : MonoBehaviour {
 	void VolumeInputContinued(AudioProcessor.VolumeInput value) {
 		//Debug.Log("Volume Input Continued " + value);
 		elapsedTime = 0f;
-		if (shields > 0) {
+		//if (shields > 0) {
 			toggleShield (true);
-		}
+		//}
 	}
 
 	void MoveLeft() {
@@ -85,7 +85,9 @@ public class Gun : MonoBehaviour {
 
 	void OnProjectileMissedTarget(Projectile projectile) {
 		projectile.OnProjectileMissedTarget -= OnProjectileMissedTarget;
-		this.scoreController.Miss();
+		if (scoreController != null) {
+			this.scoreController.Miss ();
+		}
 	}
 
 	void Reload() {
@@ -134,7 +136,9 @@ public class Gun : MonoBehaviour {
 		if (active && !shieldOn) {
 			shieldOn = true;
 			spriteShield.gameObject.SetActive (true);
-			scoreController.Miss();
+			if (scoreController != null) {
+				scoreController.Miss ();
+			}
 			shields--;
 		}
 		else if (!active && shieldOn) {
